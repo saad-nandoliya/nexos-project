@@ -1,254 +1,207 @@
-import React, { useState } from "react";
-import { CheckCircle, AlertCircle, Send, Loader2 } from "lucide-react";
-import Container from "../../../components/Container";
+import React, { useState } from 'react';
 
-const ContactForm = () => {
+const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    userType: "",
-    queryType: "",
-    message: "",
+    fullName: '',
+    companyName: '',
+    email: '',
+    country: '',
+    message: ''
   });
-
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
-    if (submitError) setSubmitError("");
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError("");
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "f8375ad6-815b-4263-8e0c-621a66b84bde",
-          name: formData.name,
-          email: formData.email,
-          phone: formData.mobile,
-          subject: `${formData.queryType} - Contact from ${formData.userType}`,
-          message: `
-User Type: ${formData.userType}
-Query Type: ${formData.queryType}
-Phone: ${formData.mobile}
-
-Message:
-${formData.message}
-          `,
-        }),
+    // Here you can add your own form submission logic
+    console.log('Form submitted:', formData);
+    setIsSubmitted(true);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        fullName: '',
+        companyName: '',
+        email: '',
+        country: '',
+        message: ''
       });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          mobile: "",
-          userType: "",
-          queryType: "",
-          message: "",
-        });
-
-        setTimeout(() => setIsSubmitted(false), 3000);
-      } else {
-        throw new Error(result.message || "Something went wrong");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitError("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    }, 3000);
   };
 
   return (
-    <div className="bg-[var(--primary)] relative overflow-hidden  flex items-center justify-center py-12 px-4">
-      {/* Background Hand Images */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Left Hand Image */}
-        <div
-          className="absolute left-0 bottom-0 sm:w-[320px] lg:w-[300px] h-[300px] bg-cover bg-no-repeat bg-center opacity-90"
-          style={{
-            backgroundImage: "url('/images/hand-left-bottom.webp')",
-            backgroundSize: "contain",
-          }}
-        ></div>
-
-        {/* Right Hand Image */}
-        <div
-          className="absolute right-0 top-20 sm:w-[320px]  lg:w-[300px] h-[250px] bg-cover bg-no-repeat bg-center opacity-90"
-          style={{
-            backgroundImage: "url('/images/hand-right-top.webp')",
-            backgroundSize: "contain",
-          }}
-        ></div>
-      </div>
-
-      <Container>
-        <div className="max-w-2xl mx-auto relative z-10">
-          {/* Header Section */}
-          {/* <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-7xl font-black text-red-600 mb-2 leading-tight">
-              Hum tak asani
-            </h1>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 italic mb-8 font-serif">
-              se pahunche
-            </h2>
-            <p className="text-lg md:text-xl text-gray-800 max-w-2xl mx-auto leading-relaxed font-medium">
-              Let's join hands in giving the best quality and incredible taste to snack lovers. 
-              Connect with us now to become the dealer of Gujarat's reputed brand.
-            </p>
-          </div> */}
-
-          {/* Success/Error Messages */}
-          {isSubmitted && (
-            <div className="mb-6 p-4 bg-green-100 border border-green-300 rounded-lg">
-              <div className="flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <div>
-                  <p className="text-green-800 font-semibold">
-                    Message sent successfully!
-                  </p>
-                  <p className="text-green-700 text-sm">
-                    We'll get back to you soon!
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {submitError && (
-            <div className="mb-6 p-4 bg-red-100 border border-red-300 rounded-lg">
-              <div className="flex items-center gap-3">
-                <AlertCircle className="w-5 h-5 text-red-600" />
-                <div>
-                  <p className="text-red-800 font-semibold">
-                    Oops! Something went wrong
-                  </p>
-                  <p className="text-red-700 text-sm">{submitError}</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Simple Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Your Sweet Name *"
-                className="w-full px-4 py-3  bg-white text-gray-800 placeholder:text-gray-500 focus:outline-none transition-all duration-300 shadow-sm"
-              />
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Email Address *"
-                className="w-full px-4 py-3  bg-white text-gray-800 placeholder:text-gray-500 focus:outline-none transition-all duration-300 shadow-sm"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <select
-                name="queryType"
-                required
-                value={formData.queryType}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3  bg-white text-gray-800 focus:outline-none transition-all duration-300 appearance-none cursor-pointer shadow-sm"
-              >
-                <option value="">Query Type *</option>
-                <option value="product-inquiry">Product Inquiry</option>
-                <option value="wholesale-order">Wholesale Order</option>
-                <option value="dealership">Dealership</option>
-                <option value="custom-order">Custom Order</option>
-                <option value="customer-support">Customer Support</option>
-                <option value="partnership">Partnership</option>
-                <option value="feedback">Feedback</option>
-                <option value="other">White Label</option>
-                <option value="other">Other</option>
-              </select>
-              <select
-                name="userType"
-                required
-                value={formData.userType}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3  bg-white text-gray-800 focus:outline-none transition-all duration-300 appearance-none cursor-pointer shadow-sm"
-              >
-                <option value="">You are a *</option>
-                <option value="customer">Sweet Customer</option>
-                <option value="dealer">Dealer Partner</option>
-                <option value="distributor">Distributor</option>
-                <option value="retailer">Retailer</option>
-                <option value="investor">Investor</option>
-                <option value="supplier">Supplier</option>
-              </select>
-            </div>
-
-            <input
-              type="tel"
-              name="mobile"
-              value={formData.mobile}
-              onChange={handleInputChange}
-              placeholder="Mobile Number (Optional)"
-              className="w-full px-4 py-3  bg-white text-gray-800 placeholder:text-gray-500 focus:outline-none transition-all duration-300 shadow-sm"
-            />
-
-            <textarea
-              name="message"
-              required
-              rows="4"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Your Sweet Message *"
-              className="w-full px-4 py-3 bg-white text-gray-800 placeholder:text-gray-500 focus:outline-none transition-all duration-300 resize-none shadow-sm"
-            />
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-white text-[var(--primary)] py-4 px-6 rounded-md font-bold text-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed "
-              // style={{ borderRadius: "0px 0px 10px 10px" }}
-            >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="w-5 h-5" />
-                  Submit
-                </>
-              )}
-            </button>
-          </form>
+    <div className="bg-white min-h-screen font-sans text-gray-800">
+      {/* --- HERO SECTION --- */}
+      <section className="bg-[#1a6a84] text-white py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <span className="bg-[#418ca4] text-xs px-3 py-1 rounded mb-4 inline-block">
+            Contact Nexus Global Overseas
+          </span>
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            Let's Build a Global Trade Partnership
+          </h1>
+          <p className="text-blue-100 max-w-2xl text-sm md:text-base">
+            Reach out to us for export inquiries, private label opportunities, or long-term supply partnerships.
+          </p>
         </div>
-      </Container>
+      </section>
+
+      {/* --- CONTENT SECTION --- */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          {/* Left Column: Info */}
+          <div className="space-y-6">
+            <div>
+              <span className="text-gray-500 text-xs font-semibold uppercase block mb-2">
+                Get In Touch
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                We're Ready to Support Your<br />Export Needs
+              </h2>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+                Nexus Global Overseas works exclusively with international buyers and partners. 
+                Our team responds promptly to all export-related inquiries.
+              </p>
+            </div>
+
+            <div className="text-sm md:text-base space-y-3 text-gray-700">
+              <p>
+                <span className="font-bold">Company:</span> Nexus Global Overseas
+              </p>
+              <p>
+                <span className="font-bold">Export Brand:</span> Nexus Global Foods
+              </p>
+              <p>
+                <span className="font-bold">Manufacturing Unit:</span> Abaad Masala & Co. (India)
+              </p>
+              <p>
+                <span className="font-bold">Email:</span> contact@nexusglobaloverseas.com
+              </p>
+              <p>
+                <span className="font-bold">Phone / WhatsApp:</span> +91 XXXXX XXXXX
+              </p>
+              <p className="leading-relaxed">
+                <span className="font-bold">Location:</span> Survey No 1767, Manasiya Motar Garej,<br />
+                Patan-deesa Highway, Lakshmipura, Vadani, Gujarat-384265
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 inline-block">
+              <p className="text-xs font-bold text-gray-500 mb-2">Business Hours</p>
+              <p className="text-sm text-gray-700">Monday – Saturday</p>
+              <p className="text-sm text-gray-700">10:00 AM – 6:00 PM (IST)</p>
+            </div>
+          </div>
+
+          {/* Right Column: Form */}
+          <div className="bg-gray-50 p-8 rounded-lg border border-gray-200">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">
+              Send Us Your Inquiry
+            </h3>
+            
+            {isSubmitted ? (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                <p className="text-green-700 font-semibold mb-2">Thank you for your inquiry!</p>
+                <p className="text-green-600 text-sm">We'll get back to you shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label htmlFor="fullName" className="text-sm font-medium text-gray-700 block mb-2">
+                    Full Name
+                  </label>
+                  <input 
+                    id="fullName"
+                    type="text" 
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all text-gray-900" 
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="companyName" className="text-sm font-medium text-gray-700 block mb-2">
+                    Company Name
+                  </label>
+                  <input 
+                    id="companyName"
+                    type="text" 
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all text-gray-900" 
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="text-sm font-medium text-gray-700 block mb-2">
+                    Email Address
+                  </label>
+                  <input 
+                    id="email"
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all text-gray-900" 
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="country" className="text-sm font-medium text-gray-700 block mb-2">
+                    Country
+                  </label>
+                  <input 
+                    id="country"
+                    type="text" 
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all text-gray-900" 
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="text-sm font-medium text-gray-700 block mb-2">
+                    Message / Requirement
+                  </label>
+                  <textarea 
+                    id="message"
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all resize-none text-gray-900"
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full bg-[#f38d39] hover:bg-[#e27d28] text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
+                >
+                  Submit Export Inquiry
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default ContactForm;
+export default ContactPage;

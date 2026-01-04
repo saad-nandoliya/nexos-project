@@ -1,12 +1,13 @@
 import React from "react";
-import ProductsPage from "./ProductsPage";
-import ContactSection from "../home/ContactSection"
-// import ProductDetail from "./ProductsDetailPage";
+import Infrastructure from "./Infrastructure";
+import ProductPortfolio from "./ProductPortfolio";
+
 const index = () => {
   return (
     <div>
-      <ProductsPage />
-      <ContactSection />
+      <Infrastructure />
+      <ProductPortfolio />
+      {/* <ContactSection /> */}
       {/* <ProductDetail /> */}
     </div>
   );

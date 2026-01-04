@@ -1,452 +1,205 @@
-import React, { useEffect, useState, useRef } from "react";
-import Container from "../../../components/Container";
-import IndiaMap from "../../../assets/images/india.svg?react";
+import React from "react";
 
-const Domestic = () => {
-  const [markers, setMarkers] = useState([]);
-  const [hoveredState, setHoveredState] = useState(null);
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const mapRef = useRef(null);
+const spicesProducts = [
+  {
+    id: 1,
+    name: "Turmeric Powder",
+    image:
+      "https://images.pexels.com/photos/1438447/pexels-photo-1438447.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 2,
+    name: "Red Chilli Powder",
+    image:
+      "https://images.pexels.com/photos/47347/chilli-ras-el-hanout-spices-spice-47347.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 3,
+    name: "Coriander Powder",
+    image:
+      "https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 4,
+    name: "Cumin Powder",
+    image:
+      "https://images.pexels.com/photos/4110254/pexels-photo-4110254.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 5,
+    name: "Garam Masala",
+    image:
+      "https://images.pexels.com/photos/3730947/pexels-photo-3730947.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 6,
+    name: "Chicken Masala",
+    image:
+      "https://images.pexels.com/photos/1117862/pexels-photo-1117862.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 7,
+    name: "Meat Masala",
+    image:
+      "https://images.pexels.com/photos/1473728/pexels-photo-1473728.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 8,
+    name: "Pav Bhaji Masala",
+    image:
+      "https://images.pexels.com/photos/3642717/pexels-photo-3642717.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 9,
+    name: "Chaat Masala",
+    image:
+      "https://images.pexels.com/photos/6542791/pexels-photo-6542791.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 10,
+    name: "Kitchen King Masala",
+    image:
+      "https://images.pexels.com/photos/6542790/pexels-photo-6542790.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 11,
+    name: "Sambhar Masala",
+    image:
+      "https://images.pexels.com/photos/4109900/pexels-photo-4109900.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 12,
+    name: "Biryani Masala",
+    image:
+      "https://images.pexels.com/photos/5117639/pexels-photo-5117639.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 13,
+    name: "Panipuri Masala",
+    image:
+      "https://images.pexels.com/photos/4611425/pexels-photo-4611425.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 14,
+    name: "Tea Masala",
+    image:
+      "https://images.pexels.com/photos/4820740/pexels-photo-4820740.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 15,
+    name: "Fish Masala",
+    image:
+      "https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 16,
+    name: "Sabzi Masala",
+    image:
+      "https://images.pexels.com/photos/763934/pexels-photo-763934.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 17,
+    name: "Rasam Powder",
+    image:
+      "https://images.pexels.com/photos/1055058/pexels-photo-1055058.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 18,
+    name: "Curry Powder",
+    image:
+      "https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 19,
+    name: "Tandoori Masala",
+    image:
+      "https://images.pexels.com/photos/4110253/pexels-photo-4110253.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 20,
+    name: "Chole Masala",
+    image:
+      "https://images.pexels.com/photos/4611428/pexels-photo-4611428.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+];
 
-  const targetStates = [
-    { id: "IN-JK", name: "Jammu & Kashmir" },
-    { id: "IN-UT", name: "Uttarakhand" },
-    { id: "IN-PB", name: "Punjab" },
-    { id: "IN-DL", name: "Delhi" },
-    { id: "IN-UP", name: "Uttar Pradesh" },
-    { id: "IN-RJ", name: "Rajasthan" },
-    { id: "IN-GJ", name: "Gujarat" },
-    { id: "IN-MH", name: "Maharashtra" },
-    { id: "IN-KA", name: "Karnataka" },
-    { id: "IN-TN", name: "Tamil Nadu" },
-    { id: "IN-WB", name: "West Bengal" },
-    { id: "IN-BR", name: "Bihar" },
-    { id: "IN-AS", name: "Assam" },
-  ];
-
-  const allIndianStates = {
-    "IN-AP": "Andhra Pradesh",
-    "IN-AR": "Arunachal Pradesh",
-    "IN-AS": "Assam",
-    "IN-BR": "Bihar",
-    "IN-CT": "Chhattisgarh",
-    "IN-GA": "Goa",
-    "IN-GJ": "Gujarat",
-    "IN-HR": "Haryana",
-    "IN-HP": "Himachal Pradesh",
-    "IN-JH": "Jharkhand",
-    "IN-KA": "Karnataka",
-    "IN-KL": "Kerala",
-    "IN-MP": "Madhya Pradesh",
-    "IN-MH": "Maharashtra",
-    "IN-MN": "Manipur",
-    "IN-ML": "Meghalaya",
-    "IN-MZ": "Mizoram",
-    "IN-NL": "Nagaland",
-    "IN-OR": "Odisha",
-    "IN-PB": "Punjab",
-    "IN-RJ": "Rajasthan",
-    "IN-SK": "Sikkim",
-    "IN-TN": "Tamil Nadu",
-    "IN-TG": "Telangana",
-    "IN-TR": "Tripura",
-    "IN-UT": "Uttarakhand",
-    "IN-UP": "Uttar Pradesh",
-    "IN-WB": "West Bengal",
-    "IN-AN": "Andaman and Nicobar Islands",
-    "IN-CH": "Chandigarh",
-    "IN-DN": "Dadra and Nagar Haveli",
-    "IN-DD": "Daman and Diu",
-    "IN-DL": "Delhi",
-    "IN-JK": "Jammu and Kashmir",
-    "IN-LA": "Ladakh",
-    "IN-LD": "Lakshadweep",
-    "IN-PY": "Puducherry",
-  };
-
-  // Fixed handleCountryHover function
-  const handleCountryHover = (marker, e) => {
-    setHoveredState({
-      id: marker.id,
-      name: marker.name,
-      isTarget: true,
-    });
-
-    const rect = mapRef.current.getBoundingClientRect();
-    setTooltipPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top - 40,
-    });
-  };
-
-  useEffect(() => {
-    const calculateMarkerPositions = () => {
-      const svgElement = mapRef.current?.querySelector("svg");
-      if (!svgElement) return;
-
-      const computedMarkers = [];
-
-      targetStates.forEach(({ id, name }) => {
-        const statePath = svgElement.querySelector(`path[id="${id}"]`);
-
-        if (statePath) {
-          try {
-            const bbox = statePath.getBBox();
-            const centerX = bbox.x + bbox.width / 2;
-            const centerY = bbox.y + bbox.height / 2;
-
-            computedMarkers.push({
-              id,
-              name,
-              x: centerX,
-              y: centerY,
-            });
-          } catch (e) {
-            console.warn(`Could not get bbox for ${id}`, e);
-          }
-        }
-      });
-
-      setMarkers(computedMarkers);
-    };
-
-    const addStateHoverListeners = () => {
-      if (!mapRef.current) return;
-      const svg = mapRef.current.querySelector("svg");
-      if (!svg) return;
-
-      Object.keys(allIndianStates).forEach((stateId) => {
-        const path = svg.querySelector(`path[id="${stateId}"]`);
-        if (path) {
-          path.addEventListener("mouseenter", (e) => {
-            const stateName = allIndianStates[stateId];
-            const isTarget = targetStates.some((ts) => ts.id === stateId);
-
-            if (isTarget) {
-              setHoveredState({
-                id: stateId,
-                name: stateName,
-                isTarget: true,
-              });
-
-              const rect = mapRef.current.getBoundingClientRect();
-              setTooltipPosition({
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top - 40,
-              });
-            }
-          });
-
-          path.addEventListener("mouseleave", () => {
-            setHoveredState(null);
-          });
-
-          path.addEventListener("mousemove", (e) => {
-            const isTarget = targetStates.some((ts) => ts.id === stateId);
-            if (isTarget) {
-              const rect = mapRef.current.getBoundingClientRect();
-              setTooltipPosition({
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top - 40,
-              });
-            }
-          });
-        }
-      });
-    };
-
-    const timer = setTimeout(() => {
-      calculateMarkerPositions();
-      addStateHoverListeners();
-    }, 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleMouseMove = (e) => {
-    const rect = mapRef.current.getBoundingClientRect();
-    setTooltipPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top - 40,
-    });
-  };
-
+function Domestic() {
   return (
-    <div className="relative bg-[var(--secondary)]">
-      {/* Header */}
-      <div className="relative z-10 pt-16 sm:pt-20 md:pt-23 pb-6 md:pb-8 bg-gradient-to-b from-[#ff99b3]/70 to-white/70">
-        <Container>
-          <div className="text-center px-4 py-10">
-            <h1 className="text-2xl sm:text-3xl font-bold text-[var(--primary)] mb-3 md:mb-4 leading-tight">
-              India Distribution Network
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[var(--dark)]/70 max-w-2xl mx-auto">
-              Spreading sweetness across 13 key states of India
-            </p>
-          </div>
-        </Container>
+    <div className="min-h-screen w-full bg-white">
+      {/* Top title */}
+      <div className="w-full bg-white py-8">
+        <h2 className="text-center text-xl md:text-2xl font-bold text-gray-900">
+          SPICES & BLENDED MASALA
+        </h2>
       </div>
 
-      {/* Map Section - Perfect Center Alignment */}
-      <div className="relative z-10 py-6 md:py-8">
-        <Container>
-          <div className="bg-white/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/30 mb-6 md:mb-8">
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-3 md:mb-4">
-                Our Distribution States
-              </h2>
-              <p className="text-[var(--dark)]/70 text-sm sm:text-base md:text-lg px-4">
-                Interactive India map showing our presence across key regions
-              </p>
-            </div>
-
-            {/* PERFECT CENTERED MAP CONTAINER */}
+      {/* Cards grid - with smaller, fixed-width cards */}
+      <div className="max-w-6xl mx-auto px-6 pb-12">
+        <div className="flex flex-wrap justify-center gap-6">
+          {spicesProducts.map((product) => (
             <div
+              key={product.id}
+              className="flex flex-col bg-white border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                minHeight: "400px",
+                width: '231px',
+                height: '262px',
+                borderRadius: '10px'
               }}
             >
-              <div
-                ref={mapRef}
-                className="relative"
+              {/* Image box - 194x160 */}
+              <div 
+                className="bg-gray-100 overflow-hidden mx-auto mt-5 group-hover:scale-105 transition-transform duration-300"
                 style={{
-                  width: "100%",
-                  maxWidth: "800px",
-                  margin: "0 auto",
-                  position: "relative",
+                  width: '194px',
+                  height: '160px',
+                  borderRadius: '10px'
                 }}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => setHoveredState(null)}
               >
-                <IndiaMap
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                    margin: "0 auto",
-                  }}
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
                 />
-
-                {/* SVG Markers - MOBILE OPTIMIZED */}
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                  viewBox="0 0 1009.6727 665.96301"
-                  preserveAspectRatio="xMidYMid meet"
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                    zIndex: 10,
-                  }}
-                >
-                  {markers.map((marker, index) => (
-                    <g key={`marker-${marker.id}-${index}`}>
-                      <g transform={`translate(${marker.x}, ${marker.y})`}>
-                        {/* MOBILE-VISIBLE MARKER */}
-                        <path
-                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          fill="#dc2626"
-                          stroke="white"
-                          strokeWidth="1"
-                          transform="translate(-12, -22) scale(1.5)"
-                          style={{
-                            pointerEvents: "auto",
-                            cursor: "pointer",
-                            filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))",
-                          }}
-                          onMouseEnter={(e) => handleCountryHover(marker, e)}
-                          onMouseMove={handleMouseMove}
-                          onMouseLeave={() => setHoveredState(null)}
-                        />
-
-                        {/* PULSING ANIMATION CIRCLE */}
-                        {/* <circle
-                          cx="0"
-                          cy="-8"
-                          r="6"
-                          fill="none"
-                          stroke="#dc2626"
-                          strokeWidth="2"
-                          opacity="0.7"
-                          style={{ pointerEvents: 'none' }}
-                        >
-                          <animate
-                            attributeName="r"
-                            values="6;12;6"
-                            dur="2s"
-                            repeatCount="indefinite"
-                          />
-                          <animate
-                            attributeName="opacity"
-                            values="0.7;0;0.7"
-                            dur="2s"
-                            repeatCount="indefinite"
-                          />
-                        </circle> */}
-                      </g>
-                    </g>
-                  ))}
-                </svg>
-
-                {/* ENHANCED CSS STYLES */}
-                <style>{`
-                  /* Perfect center alignment */
-                  .relative > svg:first-child {
-                    width: 100% !important;
-                    height: auto !important;
-                    display: block !important;
-                    margin: 0 auto !important;
-                  }
-                  
-                  /* Base state styles */
-                  .relative path[id] {
-                    fill: #00A3E0;
-                    stroke: #ffffff;
-                    stroke-width: 1.5px;
-                    transition: all 0.3s ease;
-                    cursor: pointer;
-                  }
-                  
-                  /* Highlighted states */
-                  ${targetStates
-                    .map(
-                      (state) =>
-                        `.relative path[id="${state.id}"] { 
-                          fill: var(--primary) !important; 
-                          filter: drop-shadow(0 2px 4px rgba(244, 51, 77, 0.3));
-                        }`
-                    )
-                    .join("\n")}
-                    
-                  /* Hover effects */
-                  .relative path[id]:hover {
-                    fill: rgb(20, 120, 156) !important;
-                    filter: drop-shadow(0 4px 8px rgba(0, 163, 224, 0.5));
-                    stroke-width: 2px;
-                    // transform: scale(1.05);
-                    transform-origin: center;
-                  }
-                    
-                  ${targetStates
-                    .map(
-                      (state) =>
-                        `.relative path[id="${state.id}"]:hover { 
-                          fill: #c41e3a !important;
-                          filter: drop-shadow(0 6px 12px rgba(244, 51, 77, 0.7));
-                          stroke: #ffffff;
-                          stroke-width: 2.5px;
-                          // transform: scale(1.1);
-                          transform-origin: center;
-                        }`
-                    )
-                    .join("\n")}
-                  
-                  /* MOBILE OPTIMIZATION - MARKERS VISIBLE */
-                  @media (max-width: 768px) {
-                    .relative path[id] {
-                      stroke-width: 1px;
-                    }
-                    
-                    .relative path[id]:hover {
-                      stroke-width: 1.5px;
-                      transform: scale(1.02);
-                    }
-                    
-                    /* Mobile marker scaling - FIXED */
-                    .relative svg g g {
-                      transform-origin: center center !important;
-                    }
-                    
-                    .relative svg g path {
-                      transform: translate(-12px, -22px) scale(1.2) !important;
-                    }
-                    
-                    ${targetStates
-                      .map(
-                        (state) =>
-                          `.relative path[id="${state.id}"]:hover { 
-                            stroke-width: 2px;
-                            transform: scale(1.05);
-                          }`
-                      )
-                      .join("\n")}
-                  }
-                  
-                  @media (max-width: 480px) {
-                    /* Smaller mobile devices - markers still visible */
-                    .relative svg g path {
-                      transform: translate(-12px, -22px) scale(1) !important;
-                    }
-                  }
-                `}</style>
-
-                {/* Enhanced Tooltip */}
-                {hoveredState && (
-                  <div
-                    className="absolute bg-gradient-to-r from-white to-gray-50 backdrop-blur-sm text-[var(--primary)] px-4 py-3 rounded-xl shadow-xl border-2 border-[var(--primary)]/30 pointer-events-none z-50 transition-all duration-200"
-                    style={{
-                      left: Math.min(
-                        tooltipPosition.x,
-                        (mapRef.current?.offsetWidth || 0) - 150
-                      ),
-                      top: tooltipPosition.y,
-                      transform: "translateX(-50%)",
-                    }}
-                  >
-                    <div className="text-sm font-bold whitespace-nowrap flex items-center gap-2">
-                      <div className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse"></div>
-                      {hoveredState.name}
-                    </div>
-                  </div>
-                )}
               </div>
 
-              {/* desktop */}
-              <div className="hidden sm:block mt-8 md:mt-10">
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[var(--primary)] mb-4 md:mb-6 text-center">
-                  Our Distribution Network
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2  gap-3 md:gap-4">
-                  {targetStates.map((state) => (
-                    <div
-                      key={state.id}
-                      className="bg-white/60 backdrop-blur-sm rounded-lg p-3 border border-[var(--primary)]/20 hover:bg-[var(--primary)]/10 transition-all duration-300 cursor-pointer hover:shadow-lg hover:scale-105"
-                    >
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-[var(--primary)] rounded-full flex-shrink-0 animate-pulse"></div>
-                        <span className="text-sm font-medium text-[var(--dark)] leading-tight">
-                          {state.name}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Mobile */}
-              <div className="block sm:hidden ">
-                {targetStates.map((state) => (
-                  <div key={state.id}>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-[var(--primary)]  flex-shrink-0 animate-pulse"></div>
-                      <span className="text-[9px] font-medium text-[var(--dark)] leading-tight">
-                        {state.name}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+              {/* Bottom button - 186x44 */}
+              <div 
+                className="mt-auto mb-4 mx-auto bg-[#1a6a84] text-white text-xs font-medium flex items-center justify-center"
+                style={{
+                  width: '186px',
+                  height: '44px',
+                  borderRadius: '5px'
+                }}
+              >
+                {product.name}
               </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            {/* States Grid */}
-          </div>
-        </Container>
+      {/* Bottom CTA (same as pehle) */}
+      <div className="w-full bg-[#F5F5F5] mt-6">
+        <div className="max-w-4xl mx-auto px-4 py-12 text-center">
+          <h3 className="text-lg sm:text-2xl font-semibold text-gray-900 mb-2">
+            Looking for a Reliable Product Supply?
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-600 mb-6">
+            Partner with a manufacturer-backed export company.
+          </p>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center px-7 sm:px-12 py-2.5 sm:py-3 text-sm sm:text-base
+                       font-semibold text-white bg-[#FF9F32] hover:bg-[#f18a18]
+                       rounded-md shadow-md transition-transform transition-colors duration-200 ease-out
+                       hover:scale-105"
+          >
+            Build Your Supply
+          </button>
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default Domestic;

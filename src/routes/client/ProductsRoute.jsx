@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "../../components/Layout";
-import Product from "../../pages/client/products/index";
-import ProductDetail from "../../pages/client/products/ProductsDetailPage";
+import Infrastructure from "../../pages/client/products/Infrastructure";
+import ProductPortfolio from "../../pages/client/products/ProductPortfolio";
+// import ProductDetail from "../../pages/client/products/ProductsDetailPage";
 
 const ServiceRoutes = () => {
   const location = useLocation();
@@ -10,8 +11,8 @@ const ServiceRoutes = () => {
     <div>
       <Routes location={location} key={location.key}>
         <Route element={<Layout />}>
-          <Route path="/products" element={<Product />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/products" element={<Infrastructure />} />
+          <Route path="/products-pro" element={<ProductPortfolio />} />
         </Route>
       </Routes>
     </div>

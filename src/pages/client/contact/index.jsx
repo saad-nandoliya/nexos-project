@@ -1,14 +1,14 @@
-import Direction from "./Direction"
+// import Direction from "./Direction"
 
-import QuerySection from "./QuerySection"
+// import QuerySection from "./QuerySection"
 import ContactHero from "./ContactHero"
 
 const index = () => {
     return (
         <div>
-            <QuerySection  />
+            {/* <QuerySection  /> */}
             <ContactHero/>
-            <Direction />
+            {/* <Direction /> */}
         </div>
     )
 }
