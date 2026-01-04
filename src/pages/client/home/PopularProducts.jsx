@@ -1,108 +1,63 @@
-import React, { useEffect, useState } from "react";
-import Container from "../../../components/Container";
-import { NavLink } from "react-router-dom";
-import { slide } from "../../../data/slide";
+import React from "react";
+import missionIcon from "../../../../public/prodeImage/misson.png";
+import visionIcon from "../../../../public/prodeImage/vision.png";
+import valueIcon from "../../../../public/prodeImage/value.png";
 
-const PopularProducts = () => {
-  const [popularProducts, setPopularProducts] = useState([]);
-
-  useEffect(() => {
-    // Check local cache
-    const cached = localStorage.getItem("popularProducts");
-    if (cached) {
-      setPopularProducts(JSON.parse(cached));
-      return;
+const MissionVisionValue = () => {
+  const sections = [
+    {
+      icon: missionIcon,
+      title: "OUR MISSION",
+      description: `Our mission at Nexus Global Overseas is to connect the richness of Indian food and spices with global markets by delivering products that meet international quality, safety, and reliability standards
+We aim to build long-term partnerships with our global clients by offering consistent quality, transparent business practices, and efficient export solutions.
+Backed by strong manufacturing support from Abaad Masala & Co. (India) and represented through our export brand Nexus Global Foods, we strive to be a trusted name in the international food export industry.`
+    },
+    {
+      icon: visionIcon,
+      title: "OUR VISION",
+      description: `Our vision at Nexus Global Overseas is to become a globally recognized Indian export company known for quality, reliability, and long-term partnerships in the international food and spice industry.
+We envision taking authentic Indian flavors to every corner of the world by continuously improving our export capabilities, expanding global reach, and maintaining uncompromising standards of quality and compliance.
+Through our export brand Nexus Global Foods and manufacturing strength from Abaad Masala & Co. (India), we aim to set new benchmarks in global food exports.`
+    },
+    {
+      icon: valueIcon,
+      title: "OUR VALUE PROPOSITION",
+      description: `Our mission at Nexus Global Overseas is to connect the richness of Indian food and spices with global markets by delivering products that meet international quality, safety, and reliability standards.
+We aim to build long-term partnerships with our global clients by offering consistent quality, transparent business practices, and efficient export solutions.
+Backed by strong manufacturing support from Abaad Masala & Co. (India) and represented through our export brand Nexus Global Foods, we strive to be a trusted name in the international food export industry.`
     }
-
-    // Filter & map only once
-    const filtered = slide.filter((item) => item.status === 1).slice(0, 8);
-
-    const products = filtered.map((item) => {
-      const mainImage = item.images?.find((img) => img.type === "main");
-      return {
-        id: item.prod_id,
-        title: item.title,
-        image: mainImage ? `/images/${mainImage.url}` : "",
-      };
-    });
-
-    // Save to local cache
-    localStorage.setItem("popularProducts", JSON.stringify(products));
-
-    // Preload images
-    products.forEach((prod) => {
-      if (prod.image) {
-        const img = new Image();
-        img.src = prod.image;
-      }
-    });
-
-    setPopularProducts(products);
-  }, []);
+  ];
 
   return (
-    <section className="py-10 bg-[var(--secondary)] text-gray-800 relative overflow-hidden">
-      <Container>
-        <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold bg-[var(--primary)] bg-clip-text text-transparent mb-4">
-            Popular Products
-          </h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">
-            Our best-selling chocolates loved by everyone!
-          </p>
+    <section className="py-10 md:py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {sections.map((section, idx) => (
+            <div key={idx} className="text-center">
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                <img
+                  src={section.icon}
+                  alt={section.title}
+                  className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 tracking-wide">
+                {section.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-xs md:text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                {section.description}
+              </p>
+            </div>
+          ))}
         </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {popularProducts.map((product, idx) => {
-            const slug = product.title
-              .toLowerCase()
-              .replace(/\s+/g, "-")
-              .replace(/[^a-z0-9-]/g, "");
-            return (
-              <NavLink to={`/products/${slug}`} key={product.id}>
-                <div className="group h-[300px] w-[160px] sm:w-[290px] bg-white border border-gray-100 cursor-pointer relative overflow-hidden">
-                  <div
-                    className="absolute bottom-0 left-0 w-full h-[60%] bg-[var(--primary)] opacity-0 group-hover:opacity-100 z-[1] transform translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-out"
-                    style={{ borderRadius: "50% 50% 0 0 / 30px 30px 0 0" }}
-                  ></div>
-
-                  <div className="h-[250px] flex items-center justify-center p-4 relative z-10 overflow-visible">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      loading="lazy"
-                      fetchpriority={idx < 2 ? "high" : "auto"} // First 2 images high priority
-                      className="max-h-full max-w-full object-contain relative z-10 transition-all duration-400 group-hover:scale-110 group-hover:rotate-0"
-                    />
-                  </div>
-
-                  <div className="flex items-center justify-center p-4 border-t border-gray-100 group-hover:border-white/30 transition-colors duration-500 relative z-10">
-                    <h3
-                      className="text-sm font-semibold text-gray-800 group-hover:text-white text-center leading-tight overflow-hidden line-clamp-2 transition-colors duration-500 z-50 truncate"
-                      title={product.title}
-                    >
-                      {product.title}
-                    </h3>
-                  </div>
-                </div>
-              </NavLink>
-            );
-          })}
-        </div>
-
-        <div className="text-center mt-12">
-          <NavLink to="/products">
-            <button className="group relative px-10 py-3 text-base font-semibold text-white bg-[var(--primary)] rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                View All Products
-                <div className="w-2 h-2 bg-white rounded-full group-hover:translate-x-1 transition-transform duration-300"></div>
-              </span>
-            </button>
-          </NavLink>
-        </div>
-      </Container>
+      </div>
     </section>
   );
 };
 
-export default PopularProducts;
+export default MissionVisionValue;
