@@ -6,32 +6,37 @@ import {
   ArrowRight,
   Mail,
   ChevronDown,
-  Download,
+  MapPin,
 } from "lucide-react";
+import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/images/forolly.png";
+import logo from "../../../public/prodeImage/logo.png";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Products", href: "/products" },
-  { name: "Contact", href: "/contact" },
-  { name: "Brochure", href: "#", isDownload: true },
-  {
-    name: "Market Overview",
-    href: "/export",
-    dropdown: ["Export", "Domestic"],
-  },
+  { name: "page1", href: "/page1" },
+  { name: "page2", href: "/page2" },
+  { name: "page3", href: "/page3" },
+  { name: "page4", href: "/page4" },
+    { name: "page5", href: "/page5" },
+  { name: "page6", href: "/page6" },
+  { name: "page7", href: "/page7" },
+  { name: "page8", href: "/page8" },
+];
+
+const socialLinks = [
+  { icon: FaFacebook, href: "#", label: "Facebook" },
+  { icon: FaXTwitter, href: "#", label: "Twitter" },
+  { icon: FaYoutube, href: "#", label: "YouTube" },
+  { icon: FaLinkedin, href: "#", label: "LinkedIn" },
+  { icon: FaInstagram, href: "#", label: "Instagram" },
+  { icon: FaWhatsapp, href: "#", label: "WhatsApp" },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
-  const dropdownRef = useRef(null);
-  const hoverTimeoutRef = useRef(null);
 
   // Track screen height changes for better responsiveness
   useEffect(() => {
@@ -39,7 +44,6 @@ const Navbar = () => {
       setScreenHeight(window.innerHeight);
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false);
-        setMobileDropdownOpen(false);
       }
     };
 
@@ -58,477 +62,276 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const toggleMobileDropdown = () => {
-    setMobileDropdownOpen(!mobileDropdownOpen);
-  };
-
-  const handleMouseEnter = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-    }
-    setIsDropdownOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsDropdownOpen(false);
-    }, 150);
-  };
-
-  const downloadBrochure = () => {
-    const link = document.createElement("a");
-    link.href = "/files/Forolly%20new%20catalogue.pdf";
-    link.download = "Forolly_new_catalogue.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setTimeout(() => {
-      console.log("Brochure download started!");
-    }, 100);
-  };
-
   return (
     <>
-      {/* Updated Navbar with Desktop Contact Button */}
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled || window.innerWidth < 768
-            ? "bg-white shadow-lg"
-            : "bg-transparent md:bg-transparent bg-white "
-        }`}
+      {/* Fixed Header Container - Always Sticky */}
+      <div
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
+          ? "backdrop-blur-lg shadow-xl"
+          : ""
+          }`}
         style={{
-          backgroundColor: window.innerWidth < 768 ? "white" : undefined,
+          backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.15)" : "transparent"
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <NavLink to="/">
-            <img
-              onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
-              }}
-              src={logo}
-              alt="Logo"
-              className="h-15 w-auto object-contain"
-            />
-          </NavLink>
+        {/* Top Bar - Teal with contact info - Hidden on mobile */}
+        <div className="hidden md:block" style={{ backgroundColor: isScrolled ? "rgba(26, 90, 110, 0.85)" : "#1a5a6e" }}>
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-1.5 sm:py-2">
+            <div className="flex items-center justify-around gap-2">
+              {/* Left - Contact Info */}
+              <div className="flex items-center gap-3 sm:gap-4 md:gap-6 text-white text-[10px] sm:text-xs md:text-sm">
+                <a href="tel:+919574329365" className="flex items-center gap-1.5 sm:gap-2 hover:text-white/80 transition-colors">
+                  <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  <span>+91 95743 29365</span>
+                </a>
+                <a href="mailto:Contact@nexusglobaloverseas.com" className="hidden sm:flex items-center gap-2 hover:text-white/80 transition-colors">
+                  <Mail className="w-3.5 h-3.5" />
+                  <span>Contact@nexusglobaloverseas.com</span>
+                </a>
+                <div className="hidden lg:flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Patan, Gujarat, India</span>
+                </div>
+              </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 text-md font-bold">
-            {navItems.map((item) => {
-              if (item.isDownload) {
-                return (
-                  <button
-                    key={item.name}
-                    onClick={downloadBrochure}
-                    className={`flex items-center gap-1 transition-colors cursor-pointer ${
-                      isScrolled
-                        ? "text-gray-800 hover:text-[var(--brand)]"
-                        : "text-white hover:text-[var(--brand)]"
-                    }`}
+              {/* Right - Social Icons */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                {socialLinks.slice(0, 4).map((social, idx) => (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-white hover:text-white/80 transition-colors duration-300"
                   >
-                    {item.name}
-                  </button>
-                );
-              }
-
-              if (item.dropdown) {
-                return (
-                  <div
-                    key={item.name}
-                    className="relative"
-                    ref={dropdownRef}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    <social.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  </a>
+                ))}
+                {/* Show remaining icons only on larger screens */}
+                {socialLinks.slice(4).map((social, idx) => (
+                  <a
+                    key={idx + 4}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="hidden sm:block text-white hover:text-white/80 transition-colors duration-300"
                   >
-                    <button
-                      onClick={toggleDropdown}
-                      className={`flex items-center gap-1 transition-colors cursor-pointer ${
-                        isScrolled
-                          ? "text-gray-800 hover:text-[var(--brand)]"
-                          : "text-white hover:text-[var(--brand)]"
-                      }`}
-                    >
-                      {item.name}
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          isDropdownOpen ? "rotate-180" : "rotate-0"
-                        }`}
-                      />
-                    </button>
+                    <social.icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
 
-                    {isDropdownOpen && (
-                      <div
-                        className="absolute left-0 mt-2 w-48 bg-white shadow-xl rounded-lg border border-gray-100 py-2 z-[60] animate-fadeInDown"
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                      >
-                        {item.dropdown.map((dropItem) => (
-                          <NavLink
-                            key={dropItem}
-                            to={`/${dropItem.toLowerCase()}`}
-                            className="flex items-center px-4 py-3 text-gray-700 hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-colors duration-200 font-medium"
-                            onClick={() => setIsDropdownOpen(false)}
-                          >
-                            {dropItem}
-                          </NavLink>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
+        {/* Main Header - White Background */}
+        <div
+          className={`w-full transition-all duration-500 ${isScrolled
+            ? "bg-white/20 backdrop-blur-lg"
+            : "bg-white"
+            }`}
+        >
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-16 py-2 sm:py-3 flex items-center justify-between">
+            {/* Logo */}
+            <NavLink to="/" className="flex-shrink-0">
+              <img
+                onClick={() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                }}
+                src={logo}
+                alt="Nexus Global Overseas Logo"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+              />
+            </NavLink>
 
-              return (
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
                 <NavLink
                   key={item.name}
                   to={item.href}
-                  className={({ isActive }) => {
-                    if (isActive) {
-                      return "text-[var(--brand)] transition-colors";
-                    }
-                    if (isScrolled) {
-                      return "text-gray-800 hover:text-[var(--brand)] transition-colors";
-                    }
-                    return "text-white hover:text-[var(--brand)] transition-colors";
-                  }}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors duration-300 ${isActive
+                      ? "text-[#e07b3c]"
+                      : "text-gray-700 hover:text-[#e07b3c]"
+                    }`
+                  }
                 >
                   {item.name}
                 </NavLink>
-              );
-            })}
-          </nav>
+              ))}
+            </nav>
 
-          {/* ✅ RESTORED Desktop Contact Button */}
-          <div className="hidden h-full md:flex items-center gap-4">
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => {
-                const baseClass =
-                  "relative overflow-hidden transition-all duration-300 px-4 py-2 rounded-full border-2 text-md font-bold group";
-
-                if (isActive) {
-                  return `${baseClass} text-white border-[var(--brand)] bg-[var(--brand)]`;
-                }
-                if (isScrolled) {
-                  return `${baseClass} text-gray-800 border-gray-800 hover:text-white hover:border-[var(--brand)]`;
-                }
-                return `${baseClass} text-white border-white hover:text-white hover:border-[var(--brand)]`;
-              }}
-            >
-              <span className="relative z-10">Contact Us</span>
-              <span className="absolute left-0 top-0 h-full w-0 bg-[var(--brand)] transition-all duration-300 group-hover:w-full z-0"></span>
-            </NavLink>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden relative p-2 text-[var(--primary)] hover:bg-[var(--primary)]/10 rounded-lg transition-all duration-300 group z-[60]"
-          >
-            <div className="relative w-6 h-6">
-              <Menu
-                className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                  isMenuOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
-                } text-[var(--primary)]`}
-              />
-              <X
-                className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
-                  isMenuOpen ? "rotate-0 opacity-100" : "rotate-180 opacity-0"
-                } text-[var(--primary)]`}
-              />
+            {/* Business Enquiry Button */}
+            <div className="hidden md:flex items-center">
+              <NavLink
+                to="/contact"
+                className="px-6 py-2.5 text-white text-sm font-semibold rounded-md transition-all duration-300 hover:opacity-90"
+                style={{ backgroundColor: "#e07b3c" }}
+              >
+                Business Enquiry
+              </NavLink>
             </div>
-          </button>
-        </div>
-      </header>
 
-      {/* FULLY RESPONSIVE Mobile Menu Overlay */}
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden relative p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-300"
+            >
+              <div className="relative w-6 h-6">
+                <Menu
+                  className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isMenuOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
+                    }`}
+                />
+                <X
+                  className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isMenuOpen ? "rotate-0 opacity-100" : "rotate-180 opacity-0"
+                    }`}
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Spacer to prevent content from going under fixed header */}
+      <div className="h-[60px] md:h-[108px]"></div>
+
+      {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 z-[55] transition-all duration-500 ${
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        {/* Enhanced Backdrop */}
-        <div
-          className={`absolute inset-0 bg-black/60 backdrop-blur-md transition-all duration-500 ${
-            isMenuOpen ? "backdrop-blur-md" : "backdrop-blur-none"
+        className={`md:hidden fixed inset-0 z-[100] transition-all duration-500 ${isMenuOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
           }`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/60 backdrop-blur-md"
           onClick={() => setIsMenuOpen(false)}
         ></div>
 
-        {/* RESPONSIVE Menu Panel */}
+        {/* Menu Panel */}
         <div
-          className={`absolute top-0 right-0 bg-white shadow-2xl transform transition-all duration-500 ease-out z-[60] ${
-            isMenuOpen ? "translate-x-0 scale-100" : "translate-x-full scale-95"
-          }`}
+          className={`absolute top-0 right-0 bg-white shadow-2xl transform transition-transform duration-500 ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           style={{
-            width: `min(85vw, 350px)`,
-            height: '100vh',
-            maxHeight: '100vh'
+            width: `min(80vw, 320px)`,
+            height: "100vh",
+            overflowY: "auto",
           }}
         >
-          {/* RESPONSIVE Mobile Menu Header */}
-          <div 
-            className="border-b border-gray-100 bg-[var(--primary)]/5 mb-2 "
+          {/* Mobile Menu Header */}
+          <div
+            className="border-b border-gray-100 mb-2"
             style={{
-              padding: `${Math.max(16, screenHeight * 0.02)}px ${Math.max(16, screenHeight * 0.025)}px`
+              backgroundColor: "#1a5a6e",
+              padding: "16px",
             }}
           >
-            <div className="flex items-center justify-between ">
+            <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <img
                   src={logo}
-                  alt="Forolly Logo"
-                  className="object-contain"
-                  style={{
-                    height: `${Math.max(24, Math.min(32, screenHeight * 0.04))}px`,
-                    width: 'auto'
-                  }}
+                  alt="Nexus Logo"
+                  className="h-10 w-auto object-contain"
                 />
-                <div>
-                  <span 
-                    className="font-bold text-[var(--primary)]"
-                    style={{
-                      fontSize: `${Math.max(14, Math.min(18, screenHeight * 0.022))}px`
-                    }}
-                  >
-                    Forolly
-                  </span>
-                  <div 
-                    className="text-gray-500"
-                    style={{
-                      fontSize: `${Math.max(10, Math.min(12, screenHeight * 0.015))}px`
-                    }}
-                  >
-                    Confectionery
-                  </div>
-                </div>
               </div>
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 text-gray-500 hover:text-[var(--primary)] hover:bg-[var(--primary)]/10 rounded-lg transition-all duration-300"
+                className="p-2 text-white hover:bg-white/20 rounded-lg transition-all duration-300"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          {/* RESPONSIVE Navigation Links */}
-          <div 
-            className="px-4  space-y-2 overflow-y-auto"
+          {/* Navigation Links */}
+          <div
+            className="px-4 space-y-2 overflow-y-auto"
             style={{
-              maxHeight: `${screenHeight * 0.65}px`,
-              padding: `0 ${Math.max(16, screenHeight * 0.02)}px`
+              maxHeight: `${screenHeight * 0.55}px`,
             }}
           >
-            {navItems.map((item, index) => {
-              // Handle download items in mobile
-              if (item.isDownload) {
-                return (
-                  <button
-                    key={item.name}
-                    onClick={() => {
-                      downloadBrochure();
-                      setIsMenuOpen(false);
-                    }}
-                    className="group flex items-center justify-between w-full rounded-xl transition-all duration-300 text-gray-700 hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                    style={{
-                      padding: `${Math.max(12, screenHeight * 0.015)}px ${Math.max(8, screenHeight * 0.01)}px`
-                    }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span 
-                        className="font-medium"
-                        style={{
-                          fontSize: `${Math.max(14, Math.min(16, screenHeight * 0.02))}px`
-                        }}
-                      >
-                        {item.name}
-                      </span>
-                    </div>
-                    <Download className="w-4 h-4 text-[var(--primary)]" />
-                  </button>
-                );
-              }
-
-              // Handle dropdown items in mobile
-              if (item.dropdown) {
-                return (
-                  <div key={item.name} className="space-y-1">
-                    <button
-                      onClick={toggleMobileDropdown}
-                      className="group flex items-center justify-between w-full rounded-xl transition-all duration-300 text-gray-700 hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                      style={{
-                        padding: `${Math.max(12, screenHeight * 0.015)}px ${Math.max(8, screenHeight * 0.01)}px`
-                      }}
-                    >
-                      <span 
-                        className="font-medium"
-                        style={{
-                          fontSize: `${Math.max(14, Math.min(16, screenHeight * 0.02))}px`
-                        }}
-                      >
-                        {item.name}
-                      </span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-all duration-300 ${
-                          mobileDropdownOpen
-                            ? "rotate-180 text-[var(--primary)]"
-                            : "rotate-0 text-gray-400 group-hover:text-[var(--primary)]"
+            {navItems.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) =>
+                  `group flex items-center justify-between w-full p-3 rounded-xl transition-all duration-300 ${isActive
+                    ? "bg-[#e07b3c] text-white shadow-lg"
+                    : "text-gray-700 hover:bg-[#e07b3c]/10 hover:text-[#e07b3c]"
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    <span className="font-medium text-sm">{item.name}</span>
+                    <ArrowRight
+                      className={`w-4 h-4 transition-all duration-300 ${isActive
+                        ? "text-white translate-x-1"
+                        : "text-gray-400 group-hover:text-[#e07b3c] group-hover:translate-x-1"
                         }`}
-                      />
-                    </button>
-
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        mobileDropdownOpen
-                          ? "max-h-96 opacity-100"
-                          : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <div className="pl-4 space-y-0">
-                        {item.dropdown.map((dropItem) => (
-                          <NavLink
-                            key={dropItem}
-                            to={`/${dropItem.toLowerCase()}`}
-                            onClick={() => {
-                              setIsMenuOpen(false);
-                              setMobileDropdownOpen(false);
-                            }}
-                            className={({ isActive }) =>
-                              `group flex items-center justify-between w-full rounded-xl transition-all duration-300 ${
-                                isActive
-                                  ? "bg-[var(--primary)] text-white shadow-lg"
-                                  : "text-gray-600 hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                              }`
-                            }
-                            style={{
-                              padding: `${Math.max(10, screenHeight * 0.012)}px ${Math.max(16, screenHeight * 0.02)}px`,
-                              marginLeft: `${Math.max(8, screenHeight * 0.01)}px`
-                            }}
-                          >
-                            {({ isActive }) => (
-                              <>
-                                <span 
-                                  className="font-medium"
-                                  style={{
-                                    fontSize: `${Math.max(13, Math.min(15, screenHeight * 0.018))}px`
-                                  }}
-                                >
-                                  {dropItem}
-                                </span>
-                                <ArrowRight
-                                  className={`w-3 h-3 transition-all duration-300 ${
-                                    isActive
-                                      ? "text-white translate-x-1"
-                                      : "text-gray-400 group-hover:text-[var(--primary)] group-hover:translate-x-1"
-                                  }`}
-                                />
-                              </>
-                            )}
-                          </NavLink>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <NavLink
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `group flex items-center justify-between w-full rounded-xl transition-all duration-300 ${
-                      isActive
-                        ? "bg-[var(--primary)] text-white shadow-lg"
-                        : "text-gray-700 hover:bg-[var(--primary)]/10 hover:text-[var(--primary)]"
-                    }`
-                  }
-                  style={{
-                    padding: `${Math.max(12, screenHeight * 0.015)}px ${Math.max(8, screenHeight * 0.01)}px`
-                  }}
-                >
-                  {({ isActive }) => (
-                    <>
-                      <span 
-                        className="font-medium"
-                        style={{
-                          fontSize: `${Math.max(14, Math.min(16, screenHeight * 0.02))}px`
-                        }}
-                      >
-                        {item.name}
-                      </span>
-                      <ArrowRight
-                        className={`w-4 h-4 transition-all duration-300 ${
-                          isActive
-                            ? "text-white translate-x-1"
-                            : "text-gray-400 group-hover:text-[var(--primary)] group-hover:translate-x-1"
-                        }`}
-                      />
-                    </>
-                  )}
-                </NavLink>
-              );
-            })}
+                    />
+                  </>
+                )}
+              </NavLink>
+            ))}
           </div>
 
-          {/* RESPONSIVE Mobile Contact Section */}
-           <div className="absolute bottom-0 left-0 right-0 px-6 pb-18 pt-0 border-t border-gray-100 bg-gray-50/50">
+          {/* Mobile Contact Section */}
+          <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 pt-4 border-t border-gray-100 bg-gray-50/50">
             <div className="space-y-3">
               <div>
-                <div className="text-sm text-gray-500 mb-2">Need Help?</div>
+                <div className="text-sm text-gray-500 mb-2">Contact Us</div>
                 <a
-                  href="tel:919510270600"
-                  className="flex items-center space-x-3 p-3 bg-[var(--primary)]/10 rounded-xl text-[var(--primary)] font-semibold hover:bg-[var(--primary)]/20 transition-all duration-300"
+                  href="tel:+919574329365"
+                  className="flex items-center space-x-3 p-3 rounded-xl font-semibold hover:bg-[#1a5a6e]/10 transition-all duration-300"
+                  style={{ backgroundColor: "rgba(26, 90, 110, 0.1)", color: "#1a5a6e" }}
                 >
                   <Phone className="w-5 h-5" />
-                  <span className="text-sm">+91 95102 70600</span>
+                  <span className="text-sm">+91 95743 29365</span>
                 </a>
                 <a
-                  href="mailto:support@forollyfood.com"
+                  href="mailto:Contact@nexusglobaloverseas.com"
                   className="flex items-center space-x-3 p-3 font-semibold"
+                  style={{ color: "#1a5a6e" }}
                 >
-                  <Mail className="w-5 h-5 text-[var(--primary)]" />
-                  <span className="text-sm text-[var(--primary)]">
-                    support@forollyfood.com
-                  </span>
+                  <Mail className="w-5 h-5" />
+                  <span className="text-sm">Contact@nexusglobaloverseas.com</span>
                 </a>
               </div>
 
               <NavLink
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center justify-center space-x-2 w-full p-4 bg-[var(--primary)] text-white font-semibold rounded-xl hover:bg-[var(--primary)]/90 transition-all duration-300 shadow-lg"
+                className="flex items-center justify-center space-x-2 w-full p-4 text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg"
+                style={{ backgroundColor: "#e07b3c" }}
               >
-                <span>Contact Us</span>
+                <span>Business Enquiry</span>
                 <ArrowRight className="w-5 h-5" />
               </NavLink>
+
+              {/* Social Icons */}
+              <div className="flex items-center justify-center gap-4 pt-2">
+                {socialLinks.map((social, idx) => (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="transition-colors duration-300"
+                    style={{ color: "#1a5a6e" }}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -536,35 +339,12 @@ const Navbar = () => {
 
       {/* Body Scroll Lock */}
       {isMenuOpen && (
-        <>
-          <style jsx>{`
-            body {
-              overflow: hidden;
-            }
-          `}</style>
-          <div className="fixed inset-0 z-[45] pointer-events-none">
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
-          </div>
-        </>
+        <style>{`
+          body {
+            overflow: hidden;
+          }
+        `}</style>
       )}
-
-      {/* CSS animations */}
-      <style jsx>{`
-        .animate-fadeInDown {
-          animation: fadeInDown 0.3s ease-out;
-        }
-
-        @keyframes fadeInDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </>
   );
 };

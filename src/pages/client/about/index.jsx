@@ -3,7 +3,7 @@
 import AboutHero from "./AboutHero"
 // import ContactSection from "../home/ContactSection"
 // import KeyFeatures from "../home/KeyFeatures"
-import Testimonial from "./Testimonial"
+// import Testimonial from "./Testimonial"
 
 const index = () => {
     return (

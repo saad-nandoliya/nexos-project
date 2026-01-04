@@ -16,10 +16,10 @@ const Home = () => {
         <AboutUs />
         <PopularProducts />
         <Products />
-        <Showcase />
+        {/* <Showcase /> */}
         <WhyChooseUs />
-        <Testimonials />
-        <ContactUs />
+        {/* <Testimonials /> */}
+        {/* <ContactUs /> */}
       </div>
     </div>
   );
