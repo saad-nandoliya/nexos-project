@@ -1,14 +1,13 @@
 import React from "react";
 import Infrastructure from "./Infrastructure";
-import ProductPortfolio from "./ProductPortfolio";
+import ProductPortfolio from "../prodPortfolio/ProductPortfolio";
 
 const index = () => {
   return (
     <div>
       <Infrastructure />
       <ProductPortfolio />
-      {/* <ContactSection /> */}
-      {/* <ProductDetail /> */}
+   
     </div>
   );
 };

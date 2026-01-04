@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../layout/client/Navbar";
 import Footer from "../layout/client/Footer";
-import Whatsapp from "../layout/client/Whatsapp";
 
 const Layout = () => {
   return (
@@ -10,8 +9,7 @@ const Layout = () => {
       <main className="flex-1 bg-gray-100">
         <Outlet />
       </main>
-      <Whatsapp />
-      <Footer />
+      <Footer />  
     </div>
   );
 };

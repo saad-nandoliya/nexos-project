@@ -5,7 +5,7 @@ import Products from "./Product";
 import PopularProducts from "./PopularProducts";
 import ContactUs from "./ContactSection";
 import WhyChooseUs from "./WhyChooseUs";
-import Testimonials from "../about/Testimonial";
+import Testimonials from "../leadership/Leadership";
 import Showcase from "./Showcase";
 
 const Home = () => {
