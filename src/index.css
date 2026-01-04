@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* src/index.css */
+:root {
+  --primary: #fc92d2;
+  --brand: #fc92d2;
+  --secondary: white;
+  --dark: #1e1e1e;
+  --footertext: white;
+  --font-heading: Merienda, cursive;
+}
+
+/* h1,
+h2 {
+  font-family: var(--font-heading);
+} */
+
+input,textarea ,select{
+  border-radius: 10px 0px 10px 0px;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: white;
+}
+
+button {
+  cursor: pointer;
+}
+
+.custom-shadow {
+  box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+}
+
+/* Hide scrollbar for all browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* ::selection {
+  background: #e01d26;
+  color: white;
+} */
+
+/* Scrollbar Track 
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+/* Background of the track 
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle (thumb) 
+::-webkit-scrollbar-thumb {
+  background: #e01d26;
+  border-radius: 4px;
+}
+
+/* On hover 
+::-webkit-scrollbar-thumb:hover {
+  background: #b01b24;
+  cursor: pointer;
+}*/
+
+/* Enhanced Smooth Animations */
+/* 
+
+
+/* आपके CSS file में या Tailwind config में */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out 1.2s both;
+}
