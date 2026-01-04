@@ -1,230 +1,145 @@
-import React from "react";
-import { Quote, Star, ExternalLink } from "lucide-react";
-import { NavLink } from "react-router-dom";
-import one from "../../../assets/images/arbaj_png.png";
-import two from "../../../assets/images/nandoliya.png";
-import google from "../../../assets/images/google.png";
-import Container from "../../../components/Container";
+import React from 'react';
 
-const testimonials = [
+const teamMembers = [
   {
-    name: "Arbaj Kureshi",
-    time: "10 months ago",
-    image: one,
-    rating: 5,
-    review:
-      "Forolly chocolates are sooo delicious and pure. It's a must try. Packing, quality and taste are mind-blowing.",
+    name: "NIZAMUDDIN MANASIYA",
+    role: "Founding Executive Director",
+    company: "Abaad Masala & Co.",
+    desc: "Having started his journey in spice industry, he has worked his way up and has broad experience across different industrial sectors with a strong focus on quality control and export compliance.",
+    image: "https://randomuser.me/api/portraits/men/1.jpg"
   },
   {
-    name: "Akbarali Nandoliya",
-    time: "a year ago",
-    image: two,
-    rating: 5,
-    review:
-      "Amazing visit experience. All products are hygienically produced. Unit is clean  employees wear gloves, caps, and aprons.",
+    name: "BILAL VADANAGRA",
+    role: "Director Manufacturing & Projects",
+    company: "Abaad Masala & Co.",
+    desc: "Specializing in spice manufacturing operations and quality assurance, he has been instrumental in scaling production capacity and maintaining international food safety standards.",
+    image: "https://randomuser.me/api/portraits/men/2.jpg"
   },
   {
-    name: "Ahmad Padarwala",
-    time: "a year ago",
-    rating: 5,
-    review:
-      "Forolly chocolates are a true masterpiece. The flavors are divine. Each piece is a work of art.",
+    name: "RIZWAN VADANAGRA",
+    role: "Head - Manufacturing & Operations",
+    company: "Abaad Masala & Co.",
+    desc: "He started his journey in the spice industry, worked through various manufacturing sectors and holds more than 15 years experience in operational excellence and process optimization.",
+    image: "https://randomuser.me/api/portraits/men/3.jpg"
+  },
+  {
+    name: "NASREEN MANENKOTA",
+    role: "Head - Plant Operations",
+    company: "Abaad Masala & Co.",
+    desc: "Brings a wealth of experience in logistics, warehouse management, and inventory control with expertise in maintaining hygiene standards and production efficiency.",
+    image: "https://randomuser.me/api/portraits/women/1.jpg"
+  },
+  {
+    name: "M HUSAIN SHELIYA",
+    role: "Head - Import/Export Operations",
+    company: "Nexus Global Overseas",
+    desc: "Handles all international dealings, including logistics, documentation, compliance with foreign trade policies, and building relationships with global buyers.",
+    image: "https://randomuser.me/api/portraits/men/4.jpg"
+  },
+  {
+    name: "MOHAMMAD MUNSHI",
+    role: "Head - Sales & Business Development",
+    company: "Nexus Global Overseas",
+    desc: "Works closely with international clients to understand their needs, develop customized export solutions, and ensure long-term partnerships.",
+    image: "https://randomuser.me/api/portraits/men/5.jpg"
   },
 ];
 
-const Testimonials = () => {
+const values = [
+  { title: "Integrity", detail: "Ethical Practices, Transparency & Honesty in every shipment." },
+  { title: "Accountability", detail: "We stand behind every shipment, customer, and commitment." },
+  { title: "Capability", detail: "Manufacturing skill and world-class operations." },
+  { title: "Long-Term Vision", detail: "Built for partnerships, not transactions." },
+];
+
+const LeadershipTeam = () => {
   return (
-    <section className="w-full bg-[var(--secondary)] px-4 text-gray-800 relative overflow-hidden flex items-center">
-     <Container>
-       {/* Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-16 left-16 w-32 h-32 bg-[var(--primary)]/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-[var(--primary)]/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-[var(--primary)]/6 rounded-full blur-2xl"></div>
-      </div>
+    <div className="bg-white min-h-screen font-sans">
+      {/* --- Header Section --- */}
+      <section className="py-16 px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">Leadership Team</h1>
+        <p className="text-orange-500 text-sm md:text-base font-normal max-w-2xl mx-auto">
+          A leadership team built on manufacturing strength, export responsibility,<br className="hidden md:block" />
+          and long-term global vision.
+        </p>
+      </section>
 
-      <div className="max-w-7xl mx-auto relative z-10 py-8 w-full">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--primary)] mb-4">
-            What Our Clients Say
+      {/* --- Intro Section --- */}
+      <section className="bg-white py-12 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Driven by Capability. Guided by Responsibility.
           </h2>
-
-          <div className="w-24 h-1 bg-[var(--primary)] rounded-full mx-auto mb-4"></div>
-
-          <p className="text-gray-600 text-base max-w-2xl mx-auto">
-            Hear directly from our happy Forolly fans
+          <p className="text-gray-600 leading-relaxed text-sm md:text-base max-w-4xl mx-auto">
+            At Nexus Global Overseas, leadership is not about titles — it is about accountability. Our leadership team 
+            brings together deep manufacturing knowledge and hands-on export expertise to ensure every shipment 
+            reflects consistency, quality, and trust.
           </p>
         </div>
+      </section>
 
-        {/* ✅ Mobile Horizontal Scroll */}
-        <div className="block md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4 pb-4">
-          <div className="flex gap-4 w-max snap-x snap-mandatory scroll-smooth">
-            {testimonials.map((t, idx) => (
-              <div
-                key={idx}
-                className="snap-start flex-shrink-0 w-[280px] bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-white/50 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 flex flex-col"
-              >
-                <div className="flex items-start justify-between mb-3 min-h-[48px]">
-                  <div className="flex items-center gap-3">
-                    {t.image ? (
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        className="w-10 h-10 rounded-full object-cover ring-2 ring-[var(--primary)]/20"
-                      />
-                    ) : (
-                      <div className="w-10 h-10 rounded-full bg-[var(--primary)]/20 text-[var(--primary)] flex items-center justify-center font-bold text-base ring-2 ring-[var(--primary)]/20">
-                        {t.name[0]}
-                      </div>
-                    )}
-
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-[var(--dark)] text-sm truncate">
-                        {t.name}
-                      </p>
-                      <p className="text-xs text-gray-500">{t.time}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex gap-1 mb-3 h-4">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-
-                <div className="relative mb-4 flex-1 flex flex-col justify-between">
-                  <div className="flex-1">
-                    <Quote className="absolute -top-1 -left-1 text-[var(--primary)]/20 w-5 h-5" />
-                    <p className="text-gray-700 text-sm leading-relaxed pl-4 italic">
-                      "{t.review}"
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-gray-100 mt-auto">
-                  <span className="text-xs text-[var(--primary)] uppercase tracking-wider font-medium">
-                    Google Review
-                  </span>
-                </div>
+      {/* --- Team Grid --- */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-md border border-gray-200 p-8 flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+              {/* Circular Avatar with Image */}
+              <div className="w-28 h-28 bg-gray-100 rounded-full mb-6 overflow-hidden border-2 border-gray-200">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ✅ Desktop / Tablet Grid Layout */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 mb-8 items-start">
-          {testimonials.map((t, idx) => (
-            <div
-              key={idx}
-              className="bg-white/90 min-h-[250px] backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-white/50 hover:shadow-xl hover:scale-[1.02] transition-all duration-500 flex flex-col"
-            >
-              <div className="flex items-start justify-between mb-3 min-h-[48px]">
-                <div className="flex items-center gap-3">
-                  {t.image ? (
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-10 h-10 rounded-full object-cover ring-2 ring-[var(--primary)]/20"
-                    />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full bg-[var(--primary)]/20 text-[var(--primary)] flex items-center justify-center font-bold text-base ring-2 ring-[var(--primary)]/20">
-                      {t.name[0]}
-                    </div>
-                  )}
-
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-[var(--dark)] text-sm truncate">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-gray-500">{t.time}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-1 mb-3 h-4">
-                {[...Array(t.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
-              </div>
-
-              <div className="relative mb-4 flex-1 flex flex-col justify-between">
-                <div className="flex-1">
-                  <Quote className="absolute -top-1 -left-1 text-[var(--primary)]/20 w-5 h-5" />
-                  <p className="text-gray-700 text-sm leading-relaxed pl-4 italic">
-                    "{t.review}"
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-gray-100 mt-auto">
-                <span className="text-xs text-[var(--primary)] uppercase tracking-wider font-medium">
-                  Google Review
-                </span>
-              </div>
+              
+              <h3 className="text-base font-bold text-gray-900 uppercase leading-tight mb-2">
+                {member.name}
+              </h3>
+              
+              <p className="text-orange-500 text-xs font-semibold mb-1">
+                {member.role}
+              </p>
+              
+              {member.company && (
+                <p className="text-gray-500 text-xs mb-4 italic">
+                  {member.company}
+                </p>
+              )}
+              
+              <p className="text-gray-600 text-xs leading-relaxed">
+                {member.desc}
+              </p>
             </div>
           ))}
         </div>
+      </section>
 
-        {/* Google Review CTA */}
-        <div className="text-center">
-          <NavLink
-            to="https://www.google.com/search?q=forolly#lrd=0x395cf3a590d21f47:0x9840fbef2ef6f97c,1"
-            target="_blank"
-            className="inline-block group"
-          >
-            <div className="cursor-pointer inline-flex items-center gap-4 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg border border-white/50 hover:shadow-xl hover:scale-105 transition-all duration-300">
-              <img src={google} alt="Google" className="sm:w-16 w-10" />
-              <div className="flex items-center gap-1">
-                <div className="flex items-center gap-2">
-                  <span className="sm:text-xl text-xs font-bold text-[var(--dark)]">
-                    4.8
-                  </span>
-                  <div className="flex gap-1">
-                    {[...Array(4)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-
-                    {/* Half-filled Star */}
-                    <div className="relative w-4 h-4">
-                      <Star className="w-4 h-4 text-gray-300" />
-                      <div className="absolute top-0 left-0 w-1/2 h-full overflow-hidden">
-                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span className="text-gray-600 text-sm">27 Google Reviews</span>
-              </div>
-              <ExternalLink className=" hidden sm:block w-4 h-4 text-gray-400 group-hover:text-[var(--primary)] transition-colors duration-300" />
+      {/* --- Core Values --- */}
+      <section className="py-16 px-6 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          {values.map((v, i) => (
+            <div key={i}>
+              <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2">{v.title}</h4>
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{v.detail}</p>
             </div>
-          </NavLink>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* Hide scrollbar */}
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
-     </Container>
-    </section>
+      {/* --- Footer / CTA --- */}
+      <section className="py-16 px-6 text-center bg-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+          Leadership You Can Trust
+        </h2>
+        <p className="text-gray-600 text-sm md:text-base mb-8">
+          Backed by manufacturing. Focused on global growth.
+        </p>
+        <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+          Connect With Us
+        </button>
+      </section>
+    </div>
   );
 };
 
-export default Testimonials;
+export default LeadershipTeam;

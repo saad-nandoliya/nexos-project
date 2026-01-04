@@ -9,7 +9,7 @@ import ProductsRoute from "./ProductsRoute";
 const index = () => {
   return (
     <div>
-      <ComingSoonPopup />
+      {/* <ComingSoonPopup /> */}
       <HomeRoute />
       <AboutRoute />
       <ContactRoute />

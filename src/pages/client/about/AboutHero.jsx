@@ -1,223 +1,212 @@
-import React from "react";
-import {
-  Star,
-  Award,
-  Users,
-  Globe,
-  Smile,
-  PackageOpen,
-  Calendar,
-  ThumbsUp,
-} from "lucide-react";
 
-const AboutUs = () => {
+import wave from "../../../assets/images.prod/wave.png";
+import heroBg from "../../../assets/images.prod/hero-bg.png";
+
+
+export default function ExportPage() {
   return (
-    <div className="relative bg-[var(--secondary)] overflow-hidden">
-      {/* Simple Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-[var(--primary)]/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 right-32 w-48 h-48 bg-[var(--primary)]/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-[var(--primary)]/6 rounded-full blur-2xl"></div>
-      </div>
+    <div className="w-full font-sans">
 
-      {/* Header Section */}
-      <div
-        className="relative z-10 pt-24 pb-16 bg-gradient-to-b from-[#ff99b3]/70 to-white/70
-"
+      {/* ================= HERO SECTION ================= */}
+      <section
+        className="relative bg-cover bg-center min-h-[500px] pb-32"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--dark)] mb-6 leading-tight">
-            About Forolly
-          </h1>
-          <div className="w-24 h-1 bg-[var(--primary)] rounded-full mx-auto mb-8"></div>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Welcome to Forolly, your ultimate destination for pure, handcrafted
-            chocolates and toffees. At Forolly, we believe in spreading joy
-            through every bite.
+        <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              Connecting India's<br />
+              <span className="text-gray-800">Manufacturing Strength</span><br />
+              <span className="text-gray-700">to Global Markets</span>
+            </h1>
+
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-xl">
+              Nexus Global Overseas is an export-focused company specializing in the global trade of Indian food products. 
+              We are dedicated to delivering high-quality spices, ensuring consistency, compliance, and long-term value with global partners — 
+              supported by our own manufacturing foundation in India.
+            </p>
+
+            <button className="mt-8 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+              Export Inquiry
+            </button>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-end">
+            <StatBox value="50 TPD" label="Production Capacity" bgColor="bg-[#1e5a7d]" />
+            <StatBox value="70+" label="Global Countries" bgColor="bg-[#1e5a7d]" />
+          </div>
+        </div>
+
+        {/* Wave positioned at bottom of hero section, overlapping both sections */}
+        <div className="absolute -bottom-30 left-0 right-0 w-full">
+          <img src={wave} alt="wave" className="w-full" />
+        </div>
+      </section>
+
+      {/* ================= ABOUT ================= */}
+      <section className="py-[150px] px-6 max-w-6xl mx-auto text-center">
+        <p className="text-sm text-gray-500 uppercase tracking-wide">Something know About Us.</p>
+        <h2 className="text-orange-500 font-bold text-2xl md:text-3xl mt-3 tracking-wide">
+          NEXUS GLOBAL OVERSEAS
+        </h2>
+
+        <p className="mt-6 text-gray-700 leading-relaxed text-base md:text-lg max-w-4xl mx-auto">
+          Nexus Global Overseas is a export-focused company specializing in the global trade of Indian food products. 
+          We are dedicated to delivering high-quality spices, ensuring consistency, compliance, and long-term value with global partners — 
+          supported by our own manufacturing foundation in India.
+        </p>
+      </section>
+
+      {/* ================= WHY WE EXIST ================= */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-900">
+            Why We Exist
+          </h2>
+          <p className="text-center text-orange-500 mt-3 text-lg md:text-xl font-medium">
+            Why Nexus Global Overseas Was Created
           </p>
-        </div>
-      </div>
 
-      {/* Main Story Section */}
-      <div className="relative z-10 py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Story Content */}
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--dark)] mb-8">
-                Our Sweet Journey
-              </h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Our team blends traditional recipes with modern techniques,
-                  ensuring every product is a masterpiece of flavor and quality.
-                  We maintain strict hygiene standards, source the finest
-                  ingredients, and continuously innovate to surprise your taste
-                  buds.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  Whether you're gifting, celebrating, or simply indulging in the
-                  Forolly is the perfect companion for sweet moments. Since
-                  2020, we've been dedicated to bringing happiness to families
-                  across India.
-                </p>
-              </div>
-              {/* Mission Quote */}
-              <div className="bg-white/80 border-l-4 border-[var(--primary)] p-6 rounded-r-lg shadow-lg">
-                <blockquote className="text-[var(--primary)] italic text-lg leading-relaxed">
-                  "Forolly's mission is to bring joyful candy memories to youth
-                  while celebrating life's sweet moments. We aim to delight
-                  every customer so they share their experience with others."
-                </blockquote>
-              </div>
-            </div>
-            {/* Values Panel */}
-            <div className="bg-white/90 rounded-2xl p-8 shadow-xl border border-white/60">
-              <div className="text-center mb-8">
-                <Award className="w-12 h-12 text-[var(--primary)] mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-[var(--dark)]">
-                  Our Core Values
-                </h3>
-              </div>
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: <Star className="w-6 h-6 text-yellow-500" />,
-                    title: "Premium Quality",
-                    desc: "Excellence in every creation",
-                  },
-                  {
-                    icon: <Globe className="w-6 h-6 text-green-500" />,
-                    title: "Natural Ingredients",
-                    desc: "Purity in every ingredient",
-                  },
-                  {
-                    icon: <Smile className="w-6 h-6 text-blue-500" />,
-                    title: "Customer First",
-                    desc: "Your satisfaction is our priority",
-                  },
-                  {
-                    icon: <Award className="w-6 h-6 text-purple-500" />,
-                    title: "Trusted Excellence",
-                    desc: "Honoring time-tested traditions",
-                  },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-4 p-4 hover:bg-[var(--primary)]/5 rounded-lg transition-colors duration-300"
-                  >
-                    <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-[var(--dark)] mb-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 text-sm">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div className="relative z-10 py-16 bg-white/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[var(--dark)] mb-4">
-              Our Achievements
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Numbers that reflect our commitment to quality and customer
-              satisfaction
+          <div className="mt-8 max-w-4xl mx-auto text-center space-y-4">
+            <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+              Nexus Global Overseas was created with a clear purpose — to give India's manufacturing 
+              capability a structured, responsible, global presence.
+            </p>
+            <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+              For years, our manufacturing unit Abaad Masala & Co. produced high-quality spices with 
+              discipline and scale. As capacity and expertise grew, we recognized a gap in the export 
+              ecosystem — global buyers needed more than products; they needed a partner who could 
+              take full export responsibility. That realization led to the creation of Nexus Global Overseas — a 
+              dedicated export arm built to bridge Indian manufacturing with international markets through 
+              transparency, accountability, and capability.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              {
-                number: "1M+",
-                label: "Happy Customers",
-                icon: (
-                  <Users className="w-7 h-7 text-[var(--primary)] mx-auto mb-2" />
-                ),
-              },
-              {
-                number: "50+",
-                label: "Product Varieties",
-                icon: (
-                  <PackageOpen className="w-7 h-7 text-[var(--primary)] mx-auto mb-2" />
-                ),
-              },
-              {
-                number: "100%",
-                label: "Natural Ingredients",
-                icon: (
-                  <Globe className="w-7 h-7 text-[var(--primary)] mx-auto mb-2" />
-                ),
-              },
-              {
-                number: "5+",
-                label: "Years of Excellence",
-                icon: (
-                  <Calendar className="w-7 h-7 text-[var(--primary)] mx-auto mb-2" />
-                ),
-              },
-            ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="text-center group hover:scale-105 transition-transform duration-300"
-              >
-                <div className="bg-white rounded-xl p-6 shadow-lg border border-white/60 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center">
-                  {stat.icon}
-                  <div className="text-3xl md:text-4xl font-bold text-[var(--primary)] mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Call to Action */}
-      <div className="relative z-10 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/90 rounded-2xl p-8 md:p-12 shadow-xl border border-white/60">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--dark)] mb-6">
-              Ready to Experience the Magic?
-            </h2>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-              Join millions of happy customers who have made Forolly their go to
-              choice for premium confectionery. Taste the difference that
-              quality and love can make.
+      {/* ================= MANUFACTURING BACKBONE ================= */}
+      <section className="py-16 px-6 max-w-6xl mx-auto ">
+        <p className="text-center text-orange-500 text-base md:text-lg font-medium">
+          Manufacturing Backbone
+        </p>
+        
+        <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+          Abaad Masala & Co. (India)
+        </h2>
+        
+        <p className="text-center text-gray-600 mt-4 text-sm md:text-base max-w-3xl mx-auto">
+          Our export strength is powered by our own large-scale manufacturing infrastructure.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <InfoCard 
+            title="OWN MANUFACTURING FACILITY" 
+            description="Complete Production control ensuring consistency, hygiene, and scalability."
+          />
+          <InfoCard 
+            title="60 TPD CAPACITY" 
+            description="High-volume output built for bulk export and long-term contracts."
+          />
+          <InfoCard 
+            title="70+ PROFESSIONALS" 
+            description="A skilled team managing production, quality and export operations."
+          />
+        </div>
+      </section>
+
+      {/* ================= PRIVATE LABEL ================= */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          
+          <div className="mb-12">
+            <p className="text-orange-500 text-base md:text-lg font-medium">
+              Private Label Exports
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/products"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--primary)] text-white font-semibold rounded-xl hover:bg-[var(--primary)]/90 hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                <PackageOpen className="w-5 h-5" />
-                Explore Products
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[var(--primary)] font-semibold rounded-xl border-2 border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all duration-300 shadow-lg"
-              >
-                <ThumbsUp className="w-5 h-5" />
-                Contact Us
-              </a>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+              White Label Solutions for<br />
+              Global brand
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+
+            <div>
+              <p className="text-gray-700 leading-relaxed mb-6 text-base md:text-lg">
+                We enable international buyers to launch and scale their own brands with 
+                Confidence through our white-label manufacturing and export solutions.
+              </p>
+
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span>Manufacturing under your brand</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span>Custom packaging & labeling</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span>Country-specific compliance</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span>Confidential and reliable execution</span>
+                </li>
+              </ul>
             </div>
+
+            <div className="bg-gray-50 p-8 md:p-10 rounded-lg">
+              <h3 className="font-bold text-2xl md:text-3xl text-orange-500 mb-4">
+                You Build the Market.
+              </h3>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                We manufacture, pack, and export — end to end.
+              </p>
+            </div>
+
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-20 text-center px-6 bg-gradient-to-b from-gray-50 to-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          Let's Build a Long-term Export Partnership
+        </h2>
+
+        <p className="text-gray-600 mt-4 text-lg">
+          Your Reliable Partner for Premium Indian Exports
+        </p>
+
+        <button className="mt-8 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+          Contact Export Team
+        </button>
+      </section>
+
     </div>
   );
-};
+}
 
-export default AboutUs;
+/* ================= SMALL COMPONENTS ================= */
+
+function StatBox({ value, label, bgColor = "bg-[#1e5a7d]" }) {
+  return (
+    <div className={`${bgColor} text-white p-6 rounded-xl min-w-[140px] text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
+      <p className="text-3xl font-bold">{value}</p>
+      <p className="text-sm mt-2 opacity-90">{label}</p>
+    </div>
+  );
+}
+
+function InfoCard({ title, description }) {
+  return (
+    <div className="bg-white border-2 border-gray-200 p-8 rounded-xl text-center hover:border-orange-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+      <h3 className="font-bold text-lg text-gray-900 mb-3">{title}</h3>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        {description}
+      </p>
+    </div>
+  );
+}
