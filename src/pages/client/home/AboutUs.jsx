@@ -46,19 +46,10 @@ const AboutUsSection = () => {
             {/* CTA Button */}
             <NavLink
               to="/about"
-              className="inline-block px-6 md:px-8 py-2.5 md:py-3 text-white text-sm md:text-base font-semibold rounded border-2 transition-all duration-300 hover:bg-white"
-              style={{
-                backgroundColor: "#e07b3c",
-                borderColor: "#e07b3c",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = "white";
-                e.target.style.color = "#e07b3c";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = "#e07b3c";
-                e.target.style.color = "white";
-              }}
+              className="inline-block px-6 md:px-8 py-2.5 md:py-3 text-white text-sm md:text-base font-semibold rounded-lg border-2 transition-all duration-300 hover:bg-white"
+              style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
             >
               EXPLORE OUR STORY
             </NavLink>

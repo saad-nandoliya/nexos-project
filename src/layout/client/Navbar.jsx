@@ -155,8 +155,8 @@ const Navbar = () => {
                   to={item.href}
                   className={({ isActive }) =>
                     `text-sm font-medium transition-colors duration-300 ${isActive
-                      ? "text-[#e07b3c]"
-                      : "text-gray-700 hover:text-[#e07b3c]"
+                      ? "text-[#F58634]"
+                      : "text-gray-700 hover:text-[#F58634]"
                     }`
                   }
                 >
@@ -170,7 +170,9 @@ const Navbar = () => {
               <NavLink
                 to="/contact"
                 className="px-6 py-2.5 text-white text-sm font-semibold rounded-md transition-all duration-300 hover:opacity-90"
-                style={{ backgroundColor: "#e07b3c" }}
+                style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
               >
                 Business Enquiry
               </NavLink>
