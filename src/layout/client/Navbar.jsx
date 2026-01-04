@@ -40,7 +40,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       setScreenHeight(window.innerHeight);
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsMenuOpen(false);
       }
     };
@@ -148,7 +148,7 @@ const Navbar = () => {
             </NavLink>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <NavLink
                   key={item.name}
@@ -166,7 +166,7 @@ const Navbar = () => {
             </nav>
 
             {/* Business Enquiry Button */}
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <NavLink
                 to="/contact"
                 className="px-6 py-2.5 text-white text-sm font-semibold rounded-md transition-all duration-300 hover:opacity-90"
@@ -181,18 +181,14 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden relative p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-300"
+              className="lg:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-300 z-50"
+              aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-6">
-                <Menu
-                  className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isMenuOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
-                    }`}
-                />
-                <X
-                  className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isMenuOpen ? "rotate-0 opacity-100" : "rotate-180 opacity-0"
-                    }`}
-                />
-              </div>
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -203,7 +199,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 z-[100] transition-all duration-500 ${isMenuOpen
+        className={`lg:hidden fixed inset-0 z-[100] transition-all duration-500 ${isMenuOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
           }`}
