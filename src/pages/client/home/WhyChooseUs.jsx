@@ -173,10 +173,9 @@ const WhyChooseUs = () => {
             Our trusted Client's
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
-            Nexus Global Overseas is trusted by importers, distributors, and brand owners worldwide.
-            We work closely with our clients across international markets to build long-term,
-            reliable partnerships based on trust, quality, and consistency.
-          </p>
+Nexus Global Overseas is trusted by importers, distributors, and brand owners worldwide. 
+We work closely with our clients across international markets to build long-term, 
+reliable partnerships based on trust, quality, and consistency.          </p>
         </div>
       </section>
 

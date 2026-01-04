@@ -8,23 +8,17 @@ const MissionVisionValue = () => {
     {
       icon: missionIcon,
       title: "OUR MISSION",
-      description: `Our mission at Nexus Global Overseas is to connect the richness of Indian food and spices with global markets by delivering products that meet international quality, safety, and reliability standards
-We aim to build long-term partnerships with our global clients by offering consistent quality, transparent business practices, and efficient export solutions.
-Backed by strong manufacturing support from Abaad Masala & Co. (India) and represented through our export brand Nexus Global Foods, we strive to be a trusted name in the international food export industry.`
+      description: "Our mission at Nexus Global Overseas is to connect the richness of Indian food and spices with global markets by delivering products that meet international quality, safety, and reliability standards.We aim to build long-term partnerships with our global clients by offering consistent quality, transparent business practices, and efficient export solutions. Backed by strong manufacturing support from Abaad Masala & Co. (India) and represented through our export brand Nexus Global Foods, we strive to be a trusted name in the international food export industry."
     },
     {
       icon: visionIcon,
       title: "OUR VISION",
-      description: `Our vision at Nexus Global Overseas is to become a globally recognized Indian export company known for quality, reliability, and long-term partnerships in the international food and spice industry.
-We envision taking authentic Indian flavors to every corner of the world by continuously improving our export capabilities, expanding global reach, and maintaining uncompromising standards of quality and compliance.
-Through our export brand Nexus Global Foods and manufacturing strength from Abaad Masala & Co. (India), we aim to set new benchmarks in global food exports.`
+      description: "Our vision at Nexus Global Overseas is to become a globally recognized Indian export company known for quality, reliability, and long-term partnerships in the international food and spice industry.We envision taking authentic Indian flavors to every corner of the world by continuously improving our export capabilities, expanding global reach, and maintaining uncompromising standards of quality and compliance. Through our export brand Nexus Global Foods and manufacturing strength from Abaad Masala & Co. (India), we aim to set new benchmarks in global food exports."
     },
     {
       icon: valueIcon,
       title: "OUR VALUE PROPOSITION",
-      description: `Our mission at Nexus Global Overseas is to connect the richness of Indian food and spices with global markets by delivering products that meet international quality, safety, and reliability standards.
-We aim to build long-term partnerships with our global clients by offering consistent quality, transparent business practices, and efficient export solutions.
-Backed by strong manufacturing support from Abaad Masala & Co. (India) and represented through our export brand Nexus Global Foods, we strive to be a trusted name in the international food export industry.`
+      description: "Our mission at Nexus Global Overseas is to connect the richness of Indian food and spices with global markets by delivering products that meet international quality, safety, and reliability standards.We aim to build long-term partnerships with our global clients by offering consistent quality, transparent business practices, and efficient export solutions. Backed by strong manufacturing support from Abaad Masala & Co. (India) and represented through our export brand Nexus Global Foods, we strive to be a trusted name in the international food export industry."
     }
   ];
 
