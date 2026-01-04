@@ -11,11 +11,9 @@ const ManufacturingPartner = () => {
 
         {/* Description */}
         <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Abaad Masala & Co. is a leading Indian spice manufacturing company supplying premium-quality spices across India under the brands Abbad Spices and Frize.
-        </p>
-        <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-3xl mx-auto mt-2">
-          For international markets, Spices products are specially manufactured for Nexus Global Foods
-        </p>
+Abaad Masala & Co. is a leading Indian spice manufacturing company supplying premium-quality 
+spices across India under the brands Abbad Spices and Frize.
+For international markets, Spices products are specially manufactured for Nexus Global Foods        </p>
       </div>
     </section>
   );
