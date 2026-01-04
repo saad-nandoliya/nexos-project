@@ -134,7 +134,11 @@ const LeadershipTeam = () => {
         <p className="text-gray-600 text-sm md:text-base mb-8">
           Backed by manufacturing. Focused on global growth.
         </p>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+        <button className=" text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
+        >
           Connect With Us
         </button>
       </section>
