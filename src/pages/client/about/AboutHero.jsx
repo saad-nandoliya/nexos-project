@@ -22,9 +22,8 @@ export default function ExportPage() {
             </h1>
 
             <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-xl">
-              Nexus Global Overseas is an export-focused company specializing in the global trade of Indian food products. 
-              We are dedicated to delivering high-quality spices, ensuring consistency, compliance, and long-term value with global partners — 
-              supported by our own manufacturing foundation in India.
+              Nexus Global Overseas is built to export premium Indian food products 
+with complete responsibility — from manufacturing to global delivery.
             </p>
 
             <button className="mt-8  text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
@@ -56,9 +55,11 @@ export default function ExportPage() {
         </h2>
 
         <p className="mt-6 text-gray-700 leading-relaxed text-base md:text-lg max-w-4xl mx-auto">
-          Nexus Global Overseas is a export-focused company specializing in the global trade of Indian food products. 
-          We are dedicated to delivering high-quality spices, ensuring consistency, compliance, and long-term value with global partners — 
-          supported by our own manufacturing foundation in India.
+          Nexus Global Overseas is an export-focused company specializing in the global supply of Indian food products. 
+We are dedicated to handling complete export operations — from manufacturing coordination to 
+international delivery — ensuring consistency, compliance, and long-term trust with global buyers.
+Our operations are designed exclusively for international markets, 
+supported by our own manufacturing foundation in India.
         </p>
       </section>
 
@@ -74,16 +75,15 @@ export default function ExportPage() {
 
           <div className="mt-8 max-w-4xl mx-auto text-center space-y-4">
             <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-              Nexus Global Overseas was created with a clear purpose — to give India's manufacturing 
-              capability a structured, responsible, global presence.
-            </p>
-            <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-              For years, our manufacturing unit Abaad Masala & Co. produced high-quality spices with 
-              discipline and scale. As capacity and expertise grew, we recognized a gap in the export 
-              ecosystem — global buyers needed more than products; they needed a partner who could 
-              take full export responsibility. That realization led to the creation of Nexus Global Overseas — a 
-              dedicated export arm built to bridge Indian manufacturing with international markets through 
-              transparency, accountability, and capability.
+
+Nexus Global Overseas was created with a clear purpose — to give India’s manufacturing 
+capability a structured, responsible global presence.
+For years, our manufacturing unit Abaad Masala & Co. produced high-quality spices with 
+discipline and scale. As capacity and expertise grew, we recognized a gap in the export 
+ecosystem — global buyers needed more than products; they needed a partner who could 
+take full export responsibility. That realization led to the creation of Nexus Global Overseas — a 
+dedicated export arm built to bridge Indian manufacturing with international markets through 
+transparency, accountability, and capability.
             </p>
           </div>
         </div>
@@ -100,21 +100,24 @@ export default function ExportPage() {
         </h2>
         
         <p className="text-center text-gray-600 mt-4 text-sm md:text-base max-w-3xl mx-auto">
-          Our export strength is powered by our own large-scale manufacturing infrastructure.
-        </p>
+Our export strength is powered by our own large-scale manufacturing infrastructure.        </p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <InfoCard 
             title="OWN MANUFACTURING FACILITY" 
-            description="Complete Production control ensuring consistency, hygiene, and scalability."
+            description="Complete Production control ensuring
+consistency, hygiene, and scalability."
           />
           <InfoCard 
             title="60 TPD CAPACITY" 
-            description="High-volume output built for bulk export and long-term contracts."
+            description="High-volume output built for bulk export
+and long-term contracts."
           />
           <InfoCard 
             title="70+ PROFESSIONALS" 
-            description="A skilled team managing production, quality and export operations."
+            description="A skilled team managing production,
+quality 
+and export operations."
           />
         </div>
       </section>
@@ -138,7 +141,7 @@ export default function ExportPage() {
             <div>
               <p className="text-gray-700 leading-relaxed mb-6 text-base md:text-lg">
                 We enable international buyers to launch and scale their own brands with 
-                Confidence through our white-label manufacturing and export solutions.
+Confidence through our white-label manufacturing and export solutions.
               </p>
 
               <ul className="space-y-3 text-gray-700">
@@ -211,7 +214,7 @@ function StatBox({ value, label, bgColor = "bg-[#1e5a7d]" }) {
 function InfoCard({ title, description }) {
   return (
     <div className="bg-white border-2 border-gray-200 p-8 rounded-xl text-center hover:border-orange-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-      <h3 className="font-bold text-lg text-gray-900 mb-3">{title}</h3>
+      <h3 className="font-bold text-sm text-[#DC7936] mb-3">{title}</h3>
       <p className="text-gray-600 text-sm leading-relaxed">
         {description}
       </p>
