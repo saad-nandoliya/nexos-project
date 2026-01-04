@@ -2,7 +2,7 @@ import React from "react";
 
 const ManufacturingPartner = () => {
   return (
-    <section className="py-8 md:py-12" style={{ backgroundColor: "#e8e8e8" }}>
+    <section className="py-8 md:py-12" style={{ backgroundColor: "#F2F2F2" }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Title */}
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">

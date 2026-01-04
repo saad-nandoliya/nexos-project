@@ -187,7 +187,10 @@ const LeadershipTeam = () => {
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-10 rounded-lg shadow-lg hover:shadow-xl transition-all"
+          className="text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          style={{ backgroundColor: "#F58634", color: "white" }}
+          onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}
+          onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}
         >
           Connect With Us
         </motion.button>

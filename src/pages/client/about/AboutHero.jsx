@@ -27,7 +27,11 @@ export default function ExportPage() {
               supported by our own manufacturing foundation in India.
             </p>
 
-            <button className="mt-8 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+            <button className="mt-8  text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                            style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
+            >
               Export Inquiry
             </button>
           </div>
@@ -180,7 +184,11 @@ export default function ExportPage() {
           Your Reliable Partner for Premium Indian Exports
         </p>
 
-        <button className="mt-8 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+        <button className="mt-8 bg-gradient-to-r  text-white px-10 py-4 rounded-lg font-semibold  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                        style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
+        >
           Contact Export Team
         </button>
       </section>

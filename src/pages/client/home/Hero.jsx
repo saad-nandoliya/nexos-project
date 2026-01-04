@@ -39,7 +39,9 @@ const Hero = () => {
             <NavLink
               to="/contact"
               className="inline-block px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 md:py-2.5 text-white text-[10px] sm:text-xs md:text-sm font-semibold rounded transition-all duration-300 hover:opacity-90 hover:shadow-lg"
-              style={{ backgroundColor: "#e07b3c" }}
+              style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
             >
               Get a Quote
             </NavLink>

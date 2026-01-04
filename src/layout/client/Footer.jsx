@@ -12,9 +12,11 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "leadership Team", href: "/leadership" },
-    { name: "Certification", href: "/certification" },
+    { name: "About", href: "/about" },
+    { name: "Leadership", href: "/leadership" },
+    { name: "Infrastructure", href: "/infrastructure" },
+    { name: "Products", href: "/products" },
+    { name: "Services", href: "/services" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -35,10 +37,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden" style={{ backgroundColor: "#1a5a6e" }}>
+    <footer className="relative overflow-hidden" style={{ backgroundColor: "#1B6D8C" }}>
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-16 lg:px-20 py-8 md:py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0">
 
           {/* Brand Logo */}
           <div className="flex items-start">
@@ -54,12 +56,17 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
                   <NavLink
                     to={link.href}
-                    className="text-white/80 hover:text-white transition-colors duration-300 text-sm"
+                    className={({ isActive }) =>
+                      `text-sm transition-colors duration-300 ${isActive
+                        ? "text-[#F58634]"
+                        : "text-white/80 hover:text-[#F58634]"
+                      }`
+                    }
                   >
                     {link.name}
                   </NavLink>
@@ -71,12 +78,17 @@ const Footer = () => {
           {/* Products */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-6">Products</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1">
               {products.map((product, idx) => (
                 <li key={idx}>
                   <NavLink
                     to={product.href}
-                    className="text-white/80 hover:text-white transition-colors duration-300 text-sm"
+                    className={({ isActive }) =>
+                      `text-sm transition-colors duration-300 ${isActive
+                        ? "text-[#F58634]"
+                        : "text-white/80 hover:text-[#F58634]"
+                      }`
+                    }
                   >
                     {product.name}
                   </NavLink>
@@ -91,7 +103,7 @@ const Footer = () => {
             <div className="space-y-4">
               <a
                 href="mailto:Contact@nexusglobaloverseas.com"
-                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300 text-sm"
+                className="flex items-center gap-3 text-white/80 hover:text-[#F58634] transition-colors duration-300 text-sm"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <span>Contact@nexusglobaloverseas.com</span>
@@ -104,7 +116,7 @@ const Footer = () => {
 
               <a
                 href="tel:+919574329365"
-                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-300 text-sm"
+                className="flex items-center gap-3 text-white/80 hover:text-[#F58634] transition-colors duration-300 text-sm"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span>+91 95743 29365</span>
@@ -119,7 +131,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="text-white/80 hover:text-white transition-colors duration-300"
+                    className="text-white/80 hover:text-[#F58634] transition-colors duration-300"
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
@@ -131,7 +143,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ backgroundColor: "#e07b3c" }}>
+      <div style={{ backgroundColor: "#41839B" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-center items-center">
           <p className="text-white text-sm text-center flex items-center gap-2">
             <span className="inline-flex items-center justify-center w-5 h-5 border border-white rounded-full text-xs font-semibold">
