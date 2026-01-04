@@ -215,7 +215,7 @@ const Navbar = () => {
           className={`absolute top-0 right-0 bg-white shadow-2xl transform transition-transform duration-500 ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
           style={{
-            width: `min(80vw, 320px)`,
+            width: `min(85vw, 400px)`,
             height: "100vh",
             overflowY: "auto",
           }}

@@ -9,17 +9,18 @@ const AboutUsSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* Image Section - Left */}
-          <div className="flex justify-center lg:justify-start">
+          {/* Image Section - Left Desktop, Bottom Mobile */}
+          <div className="flex justify-center lg:justify-start order-2 lg:order-1">
             <img
               src={aboutImage}
               loading="lazy"
               alt="Nexus Global Overseas - Premium Spices"
-              className="w-full max-w-md lg:max-w-lg h-auto object-contain"
+              className="w-1/2 max-w-xs md:max-w-md lg:max-w-lg h-auto object-contain mx-auto"
             />
           </div>
 
-          {/* Content Section - Right */}
-          <div className="text-center lg:text-left">
+          {/* Content Section - Right Desktop, Top Mobile */}
+          <div className="text-center lg:text-left order-1 lg:order-2">
             {/* Title with double underline */}
             <div className="mb-3 md:mb-4">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 inline-block">
@@ -27,7 +28,7 @@ const AboutUsSection = () => {
                 <span style={{ color: "#e07b3c" }}>?</span>
               </h2>
               {/* Two lines under heading */}
-              <div className="flex flex-col gap-0.5 mt-1">
+              <div className="hidden md:flex flex-col gap-0.5 mt-1">
                 <div className="h-0.5 w-28 md:w-52" style={{ backgroundColor: "#1a5a6e" }}></div>
                 <div className="h-0.5 w-20 md:w-52" style={{ backgroundColor: "#1a5a6e" }}></div>
               </div>
