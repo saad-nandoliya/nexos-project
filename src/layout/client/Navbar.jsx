@@ -14,14 +14,12 @@ import { NavLink } from "react-router-dom";
 import logo from "../../../public/prodeImage/logo.png";
 
 const navItems = [
-  { name: "page1", href: "/page1" },
-  { name: "page2", href: "/page2" },
-  { name: "page3", href: "/page3" },
-  { name: "page4", href: "/page4" },
-    { name: "page5", href: "/page5" },
-  { name: "page6", href: "/page6" },
-  { name: "page7", href: "/page7" },
-  { name: "page8", href: "/page8" },
+  { name: "About", href: "/about" },
+  { name: "Leadership", href: "/leadership" },
+  { name: "Infrastructure", href: "/infrastructure" },
+  { name: "Products", href: "/products" },
+    { name: "Services", href: "/services" },
+    { name: "Contact Us", href: "/contact" },
 ];
 
 const socialLinks = [

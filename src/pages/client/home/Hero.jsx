@@ -9,7 +9,7 @@ const Hero = () => {
       <img
         src={heroImage}
         alt="Nexus Global Overseas - Exporters of Premium Indian Spices"
-        className="w-full h-auto object-contain"
+        className="w-full h-auto object-contain bg-white"
       />
 
       {/* Content Overlay - Positioned on the image */}
