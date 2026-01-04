@@ -49,7 +49,7 @@ function Export() {
       {/* Top title */}
       <div className="w-full bg-white py-8">
         <h2 className="text-center text-xl md:text-2xl font-bold text-gray-900">
-          RICE (EXPORT GRADE)
+          Rice (Export Grade)
         </h2>
       </div>
 

@@ -1,16 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const productCategories = [
   {
     title: "Spices & Blended Masalas",
     desc: "Premium quality spices sourced from the best farms to ensure the authenticity of taste globally.",
-    link: "Read Product"
+    link: "Read Product",
+    path: "/Spices&BlendedMasalas",
+    image: "https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     title: "Rice (Export Grade)",
     desc: "Long grain Basmati & Non-Basmati rice suitable for global cuisines and long-term distribution.",
-    link: "Read Product"
+    link: "Read Product",
+    path: "/RiceExportGrade",
+    image: "https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=600"
   }
 ];
 
@@ -36,6 +41,8 @@ const staggerContainer = {
 };
 
 const ProductPortfolio = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white font-sans text-gray-800 overflow-x-hidden">
       
@@ -84,20 +91,25 @@ const ProductPortfolio = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="flex flex-wrap justify-center gap-8"
           >
             {productCategories.map((item, idx) => (
               <motion.div 
                 key={idx}
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left"
+                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left w-full max-w-sm"
               >
-                <div className="h-56 bg-gray-200"></div> {/* Placeholder for Image */}
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                  <p className="text-gray-500 text-sm mb-6 leading-relaxed">{item.desc}</p>
-                  <button className="text-[#f38d39] text-[10px] font-bold uppercase tracking-widest hover:underline">
+                <div className="h-48 overflow-hidden">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-500 text-xs mb-5 leading-relaxed">{item.desc}</p>
+                  <button 
+                    onClick={() => navigate(item.path)}
+                    className="text-[#f38d39] text-[10px] font-bold uppercase tracking-widest hover:underline"
+                  >
                     {item.link} &rarr;
                   </button>
                 </div>

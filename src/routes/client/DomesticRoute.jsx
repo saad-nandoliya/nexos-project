@@ -10,7 +10,7 @@ const DomesticRoute = () => {
     <div>
       <Routes location={location} key={location.key}>
         <Route element={<Layout />}>
-          <Route path="/domestic" element={<Domestic />} />
+          <Route path="/Spices&BlendedMasalas" element={<Domestic />} />
         </Route>
       </Routes>
     </div>

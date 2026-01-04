@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -52,20 +53,46 @@ const values = [
   { title: "Long-Term Vision", detail: "Built for partnerships, not transactions." },
 ];
 
+// Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
 const LeadershipTeam = () => {
   return (
-    <div className="bg-white min-h-screen font-sans">
+    <div className="bg-white min-h-screen font-sans overflow-x-hidden">
       {/* --- Header Section --- */}
-      <section className="py-16 px-6 text-center">
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className="py-16 px-6 text-center"
+      >
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">Leadership Team</h1>
         <p className="text-orange-500 text-sm md:text-base font-normal max-w-2xl mx-auto">
           A leadership team built on manufacturing strength, export responsibility,<br className="hidden md:block" />
           and long-term global vision.
         </p>
-      </section>
+      </motion.section>
 
       {/* --- Intro Section --- */}
-      <section className="bg-white py-12 px-6">
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className="bg-white py-8 px-6"
+      >
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Driven by Capability. Guided by Responsibility.
@@ -76,15 +103,26 @@ const LeadershipTeam = () => {
             reflects consistency, quality, and trust.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* --- Team Grid --- */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-12 px-6 bg-white">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto flex flex-wrap justify-center gap-6"
+        >
           {teamMembers.map((member, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md border border-gray-200 p-8 flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+            <motion.div 
+              key={index} 
+              variants={fadeInUp}
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-xl shadow-md border border-gray-100 p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 w-full max-w-[300px]"
+            >
               {/* Circular Avatar with Image */}
-              <div className="w-28 h-28 bg-gray-100 rounded-full mb-6 overflow-hidden border-2 border-gray-200">
+              <div className="w-24 h-24 bg-gray-100 rounded-full mb-5 overflow-hidden border-2 border-gray-100">
                 <img 
                   src={member.image} 
                   alt={member.name}
@@ -92,16 +130,16 @@ const LeadershipTeam = () => {
                 />
               </div>
               
-              <h3 className="text-base font-bold text-gray-900 uppercase leading-tight mb-2">
+              <h3 className="text-sm font-bold text-gray-900 uppercase leading-tight mb-2">
                 {member.name}
               </h3>
               
-              <p className="text-orange-500 text-xs font-semibold mb-1">
+              <p className="text-orange-500 text-[11px] font-bold uppercase mb-1">
                 {member.role}
               </p>
               
               {member.company && (
-                <p className="text-gray-500 text-xs mb-4 italic">
+                <p className="text-gray-400 text-[10px] mb-4 italic">
                   {member.company}
                 </p>
               )}
@@ -109,35 +147,51 @@ const LeadershipTeam = () => {
               <p className="text-gray-600 text-xs leading-relaxed">
                 {member.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* --- Core Values --- */}
-      <section className="py-16 px-6 bg-white border-t border-gray-200">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <section className="py-16 px-6 bg-white border-t border-gray-100">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+        >
           {values.map((v, i) => (
-            <div key={i}>
+            <motion.div key={i} variants={fadeInUp}>
               <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2">{v.title}</h4>
               <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{v.detail}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* --- Footer / CTA --- */}
-      <section className="py-16 px-6 text-center bg-white">
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className="py-16 px-6 text-center bg-white"
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
           Leadership You Can Trust
         </h2>
         <p className="text-gray-600 text-sm md:text-base mb-8">
           Backed by manufacturing. Focused on global growth.
         </p>
-        <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-10 rounded-lg shadow-lg hover:shadow-xl transition-all"
+        >
           Connect With Us
-        </button>
-      </section>
+        </motion.button>
+      </motion.section>
     </div>
   );
 };

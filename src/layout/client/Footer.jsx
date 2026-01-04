@@ -26,12 +26,12 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FaFacebook, href: "#", label: "Facebook" },
+    { icon: FaFacebook, href: "https://www.facebook.com/people/Nexus-global-overseas/61559839838765/?sk=about", label: "Facebook" },
     { icon: FaXTwitter, href: "#", label: "Twitter" },
     { icon: FaYoutube, href: "#", label: "YouTube" },
-    { icon: FaLinkedin, href: "#", label: "LinkedIn" },
-    { icon: FaInstagram, href: "#", label: "Instagram" },
-    { icon: FaWhatsapp, href: "#", label: "WhatsApp" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/company/nexusglobaloverseas/", label: "LinkedIn" },
+    { icon: FaInstagram, href: "https://www.instagram.com/nexus_globalfoods?igsh=MTJ4amprZjk3NHNnaA%3D%3D", label: "Instagram" },
+    { icon: FaWhatsapp, href: "https://api.whatsapp.com/send/?phone=919574329365&text&type=phone_number&app_absent=0", label: "WhatsApp" },
   ];
 
   return (

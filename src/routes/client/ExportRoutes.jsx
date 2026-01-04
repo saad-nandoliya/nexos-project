@@ -8,7 +8,7 @@ const ExportRoute = () => {
     <div>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/export" element={<Export />} />
+          <Route path="/RiceExportGrade" element={<Export />} />
         </Route>
       </Routes>
     </div>
