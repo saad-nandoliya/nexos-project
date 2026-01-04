@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const productCategories = [
@@ -26,20 +25,6 @@ const features = [
   { title: "Global", detail: "Meeting international demand" }
 ];
 
-// Animation Variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  }
-};
-
 const ProductPortfolio = () => {
   const navigate = useNavigate();
 
@@ -47,13 +32,7 @@ const ProductPortfolio = () => {
     <div className="bg-white font-sans text-gray-800 overflow-x-hidden">
       
       {/* --- HERO SECTION --- */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-        className="bg-[#1a6a84] text-white py-20 px-6 text-center"
-      >
+      <section className="bg-[#1a6a84] text-white py-20 px-6 text-center animate-fade-in-up">
         <div className="max-w-4xl mx-auto">
           <span className="bg-[#418ca4] text-[10px] md:text-xs px-4 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">
             Export Product Portfolio
@@ -63,42 +42,26 @@ const ProductPortfolio = () => {
             Manufactured in India at Abaad Masala & Co. and exported worldwide by Nexus Global Overseas under our international export brand Nexus Global Foods.
           </p>
         </div>
-      </motion.section>
+      </section>
 
       {/* --- PRODUCT RANGE SECTION --- */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-[#f38d39] text-xs font-bold uppercase tracking-[0.2em] mb-3 block"
-          >
+          <span className="text-[#f38d39] text-xs font-bold uppercase tracking-[0.2em] mb-3 block animate-fade-in">
             Our Product Range
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="text-3xl font-bold text-gray-900 mb-4"
-          >
+          </span>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in-up delay-100">
             Export-Grade Product Categories
-          </motion.h2>
+          </h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto mb-12">
             Our product portfolio is developed exclusively for international buyers, distributors, and private-label partners.
           </p>
 
-          <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-8"
-          >
+          <div className="flex flex-wrap justify-center gap-8">
             {productCategories.map((item, idx) => (
-              <motion.div 
+              <div 
                 key={idx}
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left w-full max-w-sm"
+                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left w-full max-w-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="h-48 overflow-hidden">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
@@ -113,21 +76,16 @@ const ProductPortfolio = () => {
                     {item.link} &rarr;
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* --- WHITE LABEL SECTION --- */}
       <section className="bg-[#1a6a84] py-20 px-6">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:w-1/2 text-white"
-          >
+          <div className="lg:w-1/2 text-white animate-slide-in-left">
             <span className="text-[#f38d39] text-xs font-bold uppercase tracking-widest mb-4 block">
               Private Label Solutions
             </span>
@@ -145,56 +103,38 @@ const ProductPortfolio = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
           
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:w-1/2 w-full h-72 md:h-96 bg-gray-300 rounded-2xl shadow-2xl"
-          ></motion.div>
+          <div className="lg:w-1/2 w-full h-72 md:h-96 bg-gray-300 rounded-2xl shadow-2xl animate-slide-in-right"></div>
         </div>
       </section>
 
       {/* --- MINI FEATURES GRID --- */}
       <section className="py-16 px-6 bg-white">
-        <motion.div 
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
-        >
+        <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {features.map((f, i) => (
-            <motion.div 
+            <div 
               key={i}
-              variants={fadeInUp}
-              className="bg-gray-50 p-6 rounded-xl text-center border border-gray-100"
+              className="bg-gray-50 p-6 rounded-xl text-center border border-gray-100 hover:bg-gray-100 transition-colors duration-300"
             >
               <h4 className="text-base font-bold text-gray-900 mb-1">{f.title}</h4>
               <p className="text-gray-500 text-[10px] md:text-xs leading-tight">{f.detail}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* --- FINAL CTA --- */}
       <section className="py-24 px-6 text-center bg-white border-t border-gray-50">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Looking for a Reliable Product Supply?</h2>
           <p className="text-gray-500 mb-10">Partner with a manufacturer-backed export company.</p>
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#f38d39] hover:bg-[#e27d28] text-white px-12 py-4 rounded-lg font-bold shadow-lg transition-colors"
+          <button 
+            className="bg-[#f38d39] hover:bg-[#e27d28] text-white px-12 py-4 rounded-lg font-bold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95"
           >
             Build Your Supply
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </section>
 
     </div>
