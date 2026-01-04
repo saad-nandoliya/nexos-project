@@ -60,23 +60,23 @@ const WhyChooseUs = () => {
   return (
     <>
       {/* ===== BRANDS & PARTNERS ===== */}
-      <section className="py-10 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="py-6 sm:py-8 md:py-10 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Header with decorative line */}
-          <div className="relative mb-10 w-full">
-            <img src={image1} alt="decoration" className="w-full h-4 md:h-5 object-contain" />
-            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-700 text-base md:text-lg font-medium whitespace-nowrap">
+          <div className="relative mb-6 sm:mb-8 md:mb-10 w-full">
+            <img src={image1} alt="decoration" className="w-full h-3 sm:h-4 md:h-5 object-contain" />
+            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 sm:px-4 text-gray-700 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap">
               Our Brands & Partners
             </h2>
           </div>
 
           {/* 3 Brand logos */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 items-end">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8 items-end">
             {brands.map((b, i) => (
               <div key={i} className="text-center">
-                <img src={b.img} alt={b.label} className="h-16 md:h-20 mx-auto mb-3 object-contain" />
-                <div className="inline-block px-3 py-1 border border-gray-300 rounded text-[10px] md:text-xs text-gray-600">
+                <img src={b.img} alt={b.label} className="h-10 sm:h-14 md:h-20 mx-auto mb-2 sm:mb-3 object-contain" />
+                <div className="inline-block px-2 sm:px-3 py-1 border border-gray-300 rounded text-[8px] sm:text-[10px] md:text-xs text-gray-600">
                   {b.label}
                 </div>
               </div>
@@ -88,28 +88,28 @@ const WhyChooseUs = () => {
 
       {/* ===== PRODUCT RANGE ===== */}
       <section
-        className="py-10 bg-cover bg-center bg-no-repeat"
+        className="py-6 sm:py-8 md:py-10 bg-cover bg-center bg-no-repeat bg-white"
         style={{ backgroundImage: `url(${image10})` }}
       >
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Header with decorative line */}
-          <div className="relative mb-8 w-full">
-            <img src={image5} alt="decoration" className="w-full h-4 md:h-5 object-contain" />
-            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 text-white text-base md:text-lg font-semibold whitespace-nowrap" style={{ backgroundColor: "#1a5a6e" }}>
+          <div className="relative mb-4 sm:mb-6 md:mb-8 w-full">
+            <img src={image5} alt="decoration" className="w-full h-3 sm:h-4 md:h-5 object-contain" />
+            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 sm:px-4 text-white text-sm sm:text-base md:text-lg font-semibold whitespace-nowrap" >
               Our Product Range
             </h2>
           </div>
 
-          {/* 4 Product images */}
-          <div className="grid grid-cols-4 gap-3 md:gap-4 mb-8 px-12">
+          {/* 4 Product images - 2 cols on mobile, 4 on desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8 px-0 sm:px-4 md:px-12">
             {products.map((p, i) => (
               <div key={i} className="text-center">
                 <div className="rounded-lg overflow-hidden mb-2 shadow-lg">
-                  <img src={p.img} alt={p.label} className="w-full h-[180px]" />
+                  <img src={p.img} alt={p.label} className="w-full h-28 sm:h-36 md:h-44 object-cover" />
                 </div>
                 <div
-                  className="inline-block px-3 py-1 text-white text-[9px] md:text-xs font-medium rounded relative bottom-5 w-[152px]"
+                  className="inline-block px-2 sm:px-3 py-1 text-white text-[8px] sm:text-[10px] md:text-xs font-medium rounded relative -top-3 sm:-top-4 md:-top-5"
                   style={{ backgroundColor: "#e07b3c" }}
                 >
                   {p.label}
@@ -122,7 +122,10 @@ const WhyChooseUs = () => {
           <div className="text-center">
             <NavLink
               to="/products"
-              className="inline-block px-8 py-2.5 bg-white text-gray-800 text-sm font-semibold rounded shadow-lg hover:bg-gray-100 transition-all"
+              className="inline-block px-6 sm:px-8 py-2 sm:py-2.5 bg-white text-gray-800 text-xs sm:text-sm font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition-all"
+              style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+                 onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
             >
               View All Products
             </NavLink>
@@ -132,29 +135,29 @@ const WhyChooseUs = () => {
       </section>
 
       {/* ===== WHY CHOOSE US ===== */}
-      <section className="py-10 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="py-6 sm:py-8 md:py-10 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Header with decorative line */}
-          <div className="relative mb-10 w-full">
-            <img src={image1} alt="decoration" className="w-full h-4 md:h-5 object-contain" />
-            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-700 text-base md:text-lg font-medium whitespace-nowrap">
+          <div className="relative mb-6 sm:mb-8 md:mb-10 w-full">
+            <img src={image1} alt="decoration" className="w-full h-3 sm:h-4 md:h-5 object-contain" />
+            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 sm:px-4 text-gray-700 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap">
               Why choose US
             </h2>
           </div>
 
-          {/* 4 Feature icons with vertical dividers */}
-          <div className="flex justify-center items-start">
+          {/* 4 Feature icons - 2x2 grid on mobile, row on desktop */}
+          <div className="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-0">
             {features.map((f, i) => (
-              <div key={i} className="flex items-start">
-                <div className="text-center px-4 md:px-8">
-                  <img src={f.img} alt={f.title} className="h-16 md:h-20 mx-auto mb-3 object-contain" />
-                  <p className="text-xs md:text-sm text-gray-700 font-medium whitespace-pre-line leading-tight">
+              <div key={i} className="flex flex-col md:flex-row items-center">
+                <div className="text-center px-2 sm:px-4 md:px-6 lg:px-8">
+                  <img src={f.img} alt={f.title} className="h-12 sm:h-14 md:h-16 lg:h-20 mx-auto mb-2 sm:mb-3 object-contain" />
+                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium whitespace-pre-line leading-tight">
                     {f.title}
                   </p>
                 </div>
                 {i < features.length - 1 && (
-                  <div className="w-px h-24 bg-gray-300 self-center"></div>
+                  <div className="hidden md:block w-px h-20 lg:h-24 bg-gray-300"></div>
                 )}
               </div>
             ))}
@@ -164,12 +167,12 @@ const WhyChooseUs = () => {
       </section>
 
       {/* ===== OUR TRUSTED CLIENTS ===== */}
-      <section className="py-10 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+      <section className="py-6 sm:py-8 md:py-10 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
             Our trusted Client's
           </h2>
-          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
             Nexus Global Overseas is trusted by importers, distributors, and brand owners worldwide.
             We work closely with our clients across international markets to build long-term,
             reliable partnerships based on trust, quality, and consistency.
@@ -178,25 +181,25 @@ const WhyChooseUs = () => {
       </section>
 
       {/* ===== WE EXPORT TO 5+ COUNTRIES ===== */}
-      <section className="py-10 bg-white">
-        <div className="max-w-6xl mx-auto px-16">
-          <div className="flex flex-col md:flex-row  items-center gap-6">
+      <section className="py-6 sm:py-8 md:py-10 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16">
+          <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
 
             {/* Left - Text */}
-            <div className="md:w-1/3 text-center md:text-left">
-              <p className="italic text-base md:text-lg mb-1" style={{ color: "#1a5a6e" }}>
+            <div className="w-full md:w-1/3 text-center md:text-left">
+              <p className="italic text-sm sm:text-base md:text-lg mb-1" style={{ color: "#1a5a6e" }}>
                 We Export to Over
               </p>
-              <h3 className="text-3xl md:text-4xl font-bold mb-1" style={{ color: "#1a5a6e" }}>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: "#1a5a6e" }}>
                 5+ <span className="uppercase">Countries</span>
               </h3>
-              <p className="text-xl md:text-2xl font-semibold uppercase" style={{ color: "#1a5a6e" }}>
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold uppercase" style={{ color: "#1a5a6e" }}>
                 Worldwide
               </p>
             </div>
 
             {/* Right - World Map Image */}
-            <div className="md:w-2/3">
+            <div className="w-full md:w-2/3">
               <img
                 src={image15}
                 alt="We export to 5+ countries worldwide"
@@ -210,20 +213,22 @@ const WhyChooseUs = () => {
 
       {/* ===== LET'S DO BUSINESS TOGETHER ===== */}
       <section
-        className="py-12 bg-cover bg-center bg-no-repeat"
+        className="py-8 sm:py-10 md:py-12 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${image16})` }}
       >
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 italic">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 italic">
             LET'S DO BUSINESS TOGETHER
           </h2>
-          <p className="text-sm md:text-base text-white/90 mb-6">
+          <p className="text-xs sm:text-sm md:text-base text-white/90 mb-4 sm:mb-6">
             Connecting Indian quality with global markets
           </p>
           <NavLink
             to="/contact"
-            className="inline-block px-10 py-3 text-white text-sm font-semibold rounded transition-all hover:opacity-90"
-            style={{ backgroundColor: "#e07b3c" }}
+            className="inline-block px-6 sm:px-8 md:px-10 py-2 sm:py-2.5 md:py-3 text-white text-xs sm:text-sm font-semibold rounded transition-all hover:opacity-90"
+            style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
+               onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
+  onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
           >
             Contact US
           </NavLink>
@@ -231,18 +236,19 @@ const WhyChooseUs = () => {
       </section>
 
       {/* ===== MEMBERSHIP & CERTIFICATION ===== */}
-      <section className="py-12 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-10">
+      <section className="py-8 sm:py-10 md:py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6 sm:mb-8 md:mb-10">
             Membership & Certification
           </h2>
-          <div className="flex flex-wrap justify-between items-center gap-6 md:gap-10">
-            <img src={image17} alt="GST Council" className="h-14 md:h-20 object-contain" />
-            <img src={image18} alt="Udyog Aadhaar" className="h-14 md:h-20 object-contain" />
-            <img src={image19} alt="APEDA" className="h-14 md:h-20 object-contain" />
-            <img src={image20} alt="Halal Certified" className="h-14 md:h-20 object-contain" />
-            <img src={image21} alt="Spices Board India" className="h-14 md:h-20 object-contain" />
-            <img src={image22} alt="MSME" className="h-14 md:h-20 object-contain" />
+          {/* 3 cols on mobile, 6 on desktop */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
+            <img src={image17} alt="GST Council" className="h-10 sm:h-14 md:h-20 object-contain" />
+            <img src={image18} alt="Udyog Aadhaar" className="h-10 sm:h-14 md:h-20 object-contain" />
+            <img src={image19} alt="APEDA" className="h-10 sm:h-14 md:h-20 object-contain" />
+            <img src={image20} alt="Halal Certified" className="h-10 sm:h-14 md:h-20 object-contain" />
+            <img src={image21} alt="Spices Board India" className="h-10 sm:h-14 md:h-20 object-contain" />
+            <img src={image22} alt="MSME" className="h-10 sm:h-14 md:h-20 object-contain" />
           </div>
         </div>
       </section>
@@ -251,4 +257,3 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-
