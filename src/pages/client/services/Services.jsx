@@ -1,5 +1,8 @@
 import React from 'react';
 
+import service from "../../../../public/prodeImage/service.jpg";
+
+
 const services = [
   {
     title: "Manufacturing Coordination",
@@ -102,7 +105,7 @@ const Services = () => {
           {/* Image Box */}
           <div className="lg:w-1/2 w-full h-80 bg-white rounded-2xl shadow-2xl overflow-hidden">
             <img 
-              src="https://images.pexels.com/photos/2226458/pexels-photo-2226458.jpeg?auto=compress&cs=tinysrgb&w=800" 
+              src={service} 
               alt="Global shipping and logistics"
               className="w-full h-full object-cover"
             />
