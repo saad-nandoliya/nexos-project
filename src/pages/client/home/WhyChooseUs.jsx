@@ -22,7 +22,7 @@ import image13 from "../../../../public/prodeImage/image13.png"; // Private Labe
 import image14 from "../../../../public/prodeImage/image14.png"; // Reliable & Timely Deliveries
 
 // Export Countries section
-import image15 from "../../../../public/prodeImage/image15.png"; // World map with flags
+import image15 from "../../../../public/prodeImage/map.jpg"; // World map with flags
 
 // Let's Do Business section
 import image16 from "../../../../public/prodeImage/image16.png"; // Background for business CTA
@@ -186,13 +186,13 @@ reliable partnerships based on trust, quality, and consistency.          </p>
 
             {/* Left - Text */}
             <div className="w-full md:w-1/3 text-center md:text-left">
-              <p className="italic text-sm sm:text-base md:text-lg mb-1" style={{ color: "#1a5a6e" }}>
+              <p className="italic text-sm sm:text-base md:text-2xl font-normal mb-1" style={{ color: "#1a5a6e", fontFamily: "Indie Flower, cursive" }}>
                 We Export to Over
               </p>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: "#1a5a6e" }}>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: "#1a5a6e", fontFamily:"Bebas Neue, sans-serif" }}>
                 5+ <span className="uppercase">Countries</span>
               </h3>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold uppercase" style={{ color: "#1a5a6e" }}>
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold uppercase" style={{ color: "#1a5a6e", fontFamily:"Bebas Neue, sans-serif" }}>
                 Worldwide
               </p>
             </div>

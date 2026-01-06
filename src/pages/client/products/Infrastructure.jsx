@@ -1,5 +1,11 @@
 import React from 'react';
 
+import facility1 from "../../../../public/prodeImage/74a08e96d7db24d83169a1bd8cd4da0806427106.png";
+import facility2 from "../../../../public/prodeImage/42bae3e61b03b55f3fe7cf1cd99244064fd34b9e.jpg";
+import facility3 from "../../../../public/prodeImage/a3dc65e68fe2958d4d6f44dfe922035cfb4fa240.jpg";
+import facility4 from "../../../../public/prodeImage/b6411d49fdcc50bb84c39800bd998afc8358b0cf.jpg";
+import facility5 from "../../../../public/prodeImage/3fc139eccc8687a819d1d217c5fdd09ce2fb8017.jpg";
+
 const stats = [
   { value: "60+", label: "Metric Tons / Day Capacity" },
   { value: "70+", label: "Skilled Workforce" },
@@ -50,36 +56,27 @@ const Infrastructure = () => {
           </div>
           
           {/* Image Grid with Real Photos */}
-          <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-            <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Manufacturing facility"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/1267360/pexels-photo-1267360.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Production line"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/1267362/pexels-photo-1267362.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Quality control"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/1267364/pexels-photo-1267364.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                alt="Packaging area"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+       <div className="lg:w-1/2 grid grid-cols-2 gap-6">
+
+  {[
+    facility1,
+    facility2,
+    facility3,
+    facility4
+  ].map((img, i) => (
+    <div key={i} className=" rounded-2xl shadow-sm">
+      <div className="rounded-xl overflow-hidden aspect-[4/3]">
+        <img
+          src={img}
+          alt="facility"
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  ))}
+
+</div>
+
         </div>
       </section>
 
@@ -142,7 +139,7 @@ const Infrastructure = () => {
           {/* Quality Control Image */}
           <div className="lg:w-1/2 w-full h-80 bg-white rounded-2xl shadow-xl overflow-hidden">
             <img 
-              src="https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800" 
+              src={facility5}
               alt="Quality control laboratory"
               className="w-full h-full object-cover"
             />

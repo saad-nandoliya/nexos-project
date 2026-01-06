@@ -1,20 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
+import prod1 from "../../../../public/prodeImage/924342857fa40bb07a6345bca455cad1c9245e25.jpg"
+import prod2 from "../../../../public/prodeImage/c99428351b90d4895ca97e521cd662010c831f3f.jpg"
+import prod3 from "../../../../public/prodeImage/794ff34af8b87a14d56322ff16ee0defe76d4d9d.jpg"
+
 const productCategories = [
   {
     title: "Spices & Blended Masalas",
     desc: "Premium quality spices sourced from the best farms to ensure the authenticity of taste globally.",
     link: "Read Product",
     path: "/Spices&BlendedMasalas",
-    image: "https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: prod1
   },
   {
     title: "Rice (Export Grade)",
     desc: "Long grain Basmati & Non-Basmati rice suitable for global cuisines and long-term distribution.",
     link: "Read Product",
     path: "/RiceExportGrade",
-    image: "https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: prod2
   }
 ];
 
@@ -57,28 +62,48 @@ const ProductPortfolio = () => {
             Our product portfolio is developed exclusively for international buyers, distributors, and private-label partners.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-8">
-            {productCategories.map((item, idx) => (
-              <div 
-                key={idx}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left w-full max-w-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-xs mb-5 leading-relaxed">{item.desc}</p>
-                  <button 
-                    onClick={() => navigate(item.path)}
-                    className="text-[#f38d39] text-[10px] font-bold uppercase tracking-widest hover:underline"
-                  >
-                    {item.link} &rarr;
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="flex flex-wrap justify-center gap-10">
+  {productCategories.map((item, idx) => (
+    <div
+      key={idx}
+      className="bg-white rounded-3xl shadow-md border border-gray-100 overflow-hidden w-full max-w-md hover:shadow-lg transition-all duration-300"
+    >
+      {/* Image container like screenshot */}
+      <div className="p-3">
+  <div className="rounded-2xl overflow-hidden bg-white h-72 flex items-center justify-center">
+    <img
+      src={item.image}
+      alt={item.title}
+      className={`w-full h-full ${
+        item.title.includes("Rice")
+          ? "object-fill"   // rice full visible
+          : "object-cover"     // others remain cropped nicely
+      }`}
+    />
+  </div>
+</div>
+
+      {/* Content */}
+      <div className="px-5 pb-5">
+        <h3 className="text-base font-extrabold text-gray-900 mb-1">
+          {item.title}
+        </h3>
+
+        <p className="text-gray-500 text-sm leading-relaxed mb-4 align-start">
+          {item.desc}
+        </p>
+
+        <button
+          onClick={() => navigate(item.path)}
+          className="text-[#f38d39] text-xs font-semibold tracking-wider hover:underline"
+        >
+          {item.link}
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </section>
 
@@ -105,7 +130,17 @@ const ProductPortfolio = () => {
             </ul>
           </div>
           
-          <div className="lg:w-1/2 w-full h-72 md:h-96 bg-gray-300 rounded-2xl shadow-2xl animate-slide-in-right"></div>
+<div className="lg:w-1/2 w-full">
+  <div className=" rounded-2xl shadow-xl">
+    <div className="rounded-xl overflow-hidden">
+      <img
+        src={prod3}
+        alt="Private label products"
+        className="w-full h-60 md:h-80 object-cover"
+      />
+    </div>
+  </div>
+</div>
         </div>
       </section>
 
