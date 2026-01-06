@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import facility1 from "../../../../public/prodeImage/74a08e96d7db24d83169a1bd8cd4da0806427106.png";
 import facility2 from "../../../../public/prodeImage/42bae3e61b03b55f3fe7cf1cd99244064fd34b9e.jpg";
@@ -151,9 +152,9 @@ const Infrastructure = () => {
       <section className="py-24 px-6 text-center bg-white">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">Infrastructure That Supports Global Growth</h2>
         <p className="text-gray-500 mb-10 text-lg">Manufacturing strength you can rely on for long-term export partnerships.</p>
-        <button className="bg-[#f38d39] hover:bg-[#e27d28] text-white px-10 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl">
+        <NavLink to="/contact" className="bg-[#f38d39] hover:bg-[#e27d28] text-white px-10 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl inline-block">
           Contact Our Team
-        </button>
+        </NavLink>
       </section>
     </div>
   );

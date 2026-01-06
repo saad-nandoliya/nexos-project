@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   Heart,
   Sparkles,
@@ -88,8 +89,8 @@ const ContactSection = () => {
 
           {/* Main CTA Button */}
           <div className="relative">
-            <a
-              href="/contact"
+            <NavLink
+              to="/contact"
               className="relative inline-flex items-center gap-3 bg-gradient-to-r from-[var(--primary)] via-[var(--primary)]/90 to-[var(--primary)] text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 group overflow-hidden"
             >
               <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
@@ -97,7 +98,7 @@ const ContactSection = () => {
               <div className="flex items-center gap-1">
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
               </div>
-            </a>
+            </NavLink>
           </div>
 
           {/* Bottom Sweet Note */}

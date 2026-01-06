@@ -3,6 +3,9 @@ import wave from "../../../assets/images.prod/wave.png";
 import heroBg from "../../../assets/images.prod/hero-bg.png";
 
 
+import { NavLink } from "react-router-dom";
+
+
 export default function ExportPage() {
   return (
     <div className="w-full font-sans">
@@ -26,13 +29,13 @@ export default function ExportPage() {
 with complete responsibility — from manufacturing to global delivery.
             </p>
 
-            <button className="mt-8  text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+            <NavLink to="/contact" className="mt-8 inline-block text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                             style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
                  onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
   onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
             >
               Export Inquiry
-            </button>
+            </NavLink>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-end">
@@ -187,13 +190,13 @@ Confidence through our white-label manufacturing and export solutions.
           Your Reliable Partner for Premium Indian Exports
         </p>
 
-        <button className="mt-8 bg-gradient-to-r  text-white px-10 py-4 rounded-lg font-semibold  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+        <NavLink to="/contact" className="mt-8 bg-gradient-to-r inline-block text-white px-10 py-4 rounded-lg font-semibold  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                         style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
                  onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
   onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}   // original color
         >
           Contact Export Team
-        </button>
+        </NavLink>
       </section>
 
     </div>

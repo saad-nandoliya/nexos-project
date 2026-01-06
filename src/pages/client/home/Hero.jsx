@@ -4,58 +4,75 @@ import heroImage from "../../../../public/prodeImage/heroImage.png";
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-white bottom-0">
+    <section className="relative w-full bg-white">
+      {/* 
+        Container is relative. 
+        Image is w-full h-auto so it scales naturally without cropping.
+        Block display ensures no extra bottom space.
+      */}
+      <div className="w-full ">
+        <img
+          src={heroImage}
+          alt="Nexus Global Overseas - Exporters of Premium Indian Spices"
+          className="w-full h-auto object-contain block relative sm:-top-36 top-0"
+        />
+      </div>
 
-      {/* Hero Image */}
-      <img
-        src={heroImage}
-        alt="Nexus Global Overseas - Exporters of Premium Indian Spices"
-        className="w-full h-[55vh] sm:h-[58vh] md:h-[60vh] lg:h-auto object-cover bg-white lg:-mt-[110px]"
-      />
+      {/* 
+        Content Overlay 
+        Absolute position over the image.
+        Uses percent/vw to scale perfectly with the image.
+        Flex layout to place text correctly relative to image aspect ratio.
+        Changed justify-center -> justify-start + pt-[12%] to move text "thoda upar"
+      */}
+      <div className="absolute inset-0 w-full h-full flex flex-col justify-start pt-[9%] px-[4%]">
+        
+        {/* Max width container to align with design (approx left half) */}
+        <div className="w-[55%] flex flex-col gap-[1vw] sm:gap-[1.5vw]">
+          
+          {/* Main Heading */}
+          <h1 className="font-bold text-gray-900 leading-[1.1]  
+            text-[4.5vw] 
+            min-[1441px]:text-[60px]"
+          >
+            Exporters of Premium
+          </h1>
 
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex md:items-start 2xl:top-52 lg:left-40  md:bottom-28 top-20 left-2 sm:top-0  ">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-12 sm:pt-14 md:pt-24 lg:pt-36">
-          <div className="max-w-md lg:max-w-lg">
+          {/* Sub Heading */}
+          <h2 className="font-bold text-gray-700 leading-[0.5]
+            text-[2.5vw]
+            min-[1441px]:text-[35px]"
+          >
+            Indian Spices & Food Products{" "}
+            <span className="font-normal text-[0.6em]">to the</span>{" "}
+            <span className="font-bold text-[1.1em]">World</span>
+          </h2>
 
-            {/* Heading */}
-            <h1 className="text-md md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-bold text-gray-800 leading-tight">
-              Exporters of Premium
-            </h1>
+          {/* Divider & Manufacturer Info */}
+          <div className="w-[90%] my-[0.5vw]">
+            <div className="border-b border-gray-400 w-full mb-[0.5vw]"></div>
+            <p className="font-medium text-gray-600 tracking-wide
+              text-[1.8vw]
+              min-[1441px]:text-[16px]"
+            >
+              Manufactured by Abaad Masala & Co. (India) || Exported by Nexus Global Overseas
+            </p>
+            <div className="border-b border-gray-400 w-full mt-[0.5vw]"></div>
+          </div>
 
-            {/* Sub Heading */}
-            <h2 className="text-xs md:text-sm lg:text-md xl:text-lg 2xl:text-2xl 3xl:text-3xl font-bold text-gray-700 mt-1 mb-2">
-              Indian Spices & Food Products {" "}
-              <span className="text-xs md:text-sm lg:text-sm font-normal">to the</span>{" "}
-              <span className="text-xs md:text-sm lg:text-md xl:text-lg  font-bold">
-                World
-              </span>
-            </h2>
-
-
-<div className="mb-7">
-            {/* Divider */}
-            <div className="border-b border-gray-400 md:w-3/4 w-2/4 2xl:w-full "></div>
-              <p className="text-[5px] md:text-[9.7px]  2xl:text-[12.8px] 3xl:text-[14px] text-gray-600 pb-1  inline-block font-medium tracking-wide">
-                Manufactured by Abaad Masala & Co. (India) || Exported by Nexus Global Overseas
-              </p>
-            <div className="border-b border-gray-400 md:w-3/4 w-2/4 2xl:w-full mb-2"></div>
-
-
-</div>
-
-            {/* CTA Button */}
+           {/* CTA Button */}
+           <div className="mt-[1vw]">
             <NavLink
               to="/contact"
-              className="inline-block px-5 md:px-6 py-2 md:py-2.5 text-white text-xs sm:text-sm md:text-sm font-semibold rounded transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+              className="inline-block rounded font-semibold text-white tracking-wide transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:scale-105
+              px-[2.5vw] py-[0.8vw] text-[2.5vw]
+              min-[1441px]:px-[32px] min-[1441px]:py-[12px] min-[1441px]:text-[18px]"
               style={{ backgroundColor: "#F58634" }}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#d96b20")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#F58634")}
             >
               Get a Quote
             </NavLink>
-
           </div>
+
         </div>
       </div>
     </section>
