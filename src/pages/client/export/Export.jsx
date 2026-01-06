@@ -1,106 +1,331 @@
 import React from "react";
 
-const riceProducts = [
-  {
-    id: 1,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/4110257/pexels-photo-4110257.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 2,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 3,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/4198023/pexels-photo-4198023.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 4,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/3735192/pexels-photo-3735192.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 5,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/143130/pexels-photo-143130.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 6,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/3735193/pexels-photo-3735193.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 7,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/102760/pexels-photo-102760.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-  {
-    id: 8,
-    name: "Product Name",
-    image: "https://images.pexels.com/photos/3735188/pexels-photo-3735188.jpeg?auto=compress&cs=tinysrgb&w=400",
-  },
-];
+import riceBanner from "../../../../public/prodeImage/rice.jpg";
+import rice1 from "../../../../public/prodeImage/rice1.jpg";
+import rice2 from "../../../../public/prodeImage/rice2.jpg";
+import rice3 from "../../../../public/prodeImage/rice3.jpg";
+import rice4 from "../../../../public/prodeImage/rice4.jpg";
+
+
+
+import rice5 from "../../../../public/prodeImage/683d39b30a0149b066efa4a9f384917bc5f53b4f.png";
+import rice6 from "../../../../public/prodeImage/f93bc0bcbe8290d47fd538cd9e048787298c2bdb.jpg";
+import rice7 from "../../../../public/prodeImage/92f574b621faaf558587eaa138070321b36ba7f3.jpg";
+import rice8 from "../../../../public/prodeImage/e7ae02024c21cabce14c604727ba1af2f53133e1.jpg";
 
 function Export() {
   return (
-    <div className="min-h-screen w-full bg-white">
+    <div className="min-h-screen w-full bg-white  pt-8">
       {/* Top title */}
-      <div className="w-full bg-white py-8">
+      <div className="w-full bg-[#EFEFEF] py-4">
         <h2 className="text-center text-xl md:text-2xl font-bold text-gray-900">
           Rice (Export Grade)
         </h2>
       </div>
 
       {/* Cards grid - with smaller, fixed-width cards */}
-      <div className="max-w-6xl mx-auto px-6 pb-12">
-        <div className="flex flex-wrap justify-center gap-6">
-          {riceProducts.map((product) => (
-            <div
-              key={product.id}
-              className="flex flex-col bg-white border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-              style={{
-                width: '231px',
-                height: '262px',
-                borderRadius: '10px'
-              }}
-            >
-              {/* Image box - 194x160 */}
-              <div 
-                className="bg-gray-100 overflow-hidden mx-auto mt-5 group-hover:scale-105 transition-transform duration-300"
-                style={{
-                  width: '194px',
-                  height: '160px',
-                  borderRadius: '10px'
-                }}
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+      <div className=" mx-auto  pb-12 pt-5">
+      <div
+  className="w-full h-[250px] bg-center bg-cover flex items-center justify-center"
+  style={{ backgroundImage: `url(${riceBanner})` }}
+>
+  <h2 className="text-white text-3xl font-extrabold tracking-wide">
+    PREMIUM BASMATI RICE
+  </h2>
+</div>
 
-              {/* Bottom button - 186x44 */}
-              <div 
-                className="mt-auto mb-4 mx-auto bg-[#1a6a84] text-white text-xs font-medium flex items-center justify-center"
-                style={{
-                  width: '186px',
-                  height: '44px',
-                  borderRadius: '5px'
-                }}
-              >
-                {product.name}
-              </div>
-            </div>
-          ))}
+
+
+
+
+<div className="bg-white">
+  <section className="max-w-5xl mx-auto px-4 py-10">
+  
+  {/*max-w-6xl mx-auto  Title */}
+  <h3 className="text-xl font-bold mb-6">
+    1121 Basmati Rice
+  </h3>
+
+  {/* Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+    {[
+      { img: rice1, label: "1121 Raw Basmati Rice" },
+      { img: rice2, label: "1121 Steam Basmati Rice" },
+      { img: rice3, label: "1121 White Sella Basmati Rice" },
+      { img: rice4, label: "1121 Golden Sella Basmati Rice" },
+    ].map((item, i) => (
+      <div key={i}>
+        
+        {/* Image box */}
+        <div className="rounded-xl overflow-hidden shadow-sm bg-white">
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-32 lg:h-36 object-cover"
+          />
         </div>
+
+        {/* Caption */}
+        <p className="text-sm mt-2">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+</div>
+
+<div className="bg-[#F9F9F9]">
+  <section className="max-w-5xl mx-auto px-4 py-10 ">
+  
+  {/* Title */}
+  <h3 className="text-xl font-bold mb-6">
+    1718 Premium Basmati Rice
+  </h3>
+
+  {/* Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+    {[
+      { img: rice1, label: "1718 Raw Basmati Rice" },
+      { img: rice2, label: "1718 Steam Basmati Rice" },
+      { img: rice3, label: "1718 White Sella Basmati Rice" },
+      { img: rice4, label: "1718 Golden Sella Basmati Rice" },
+    ].map((item, i) => (
+      <div key={i}>
+        
+        {/* Image box */}
+        <div className="rounded-xl overflow-hidden shadow-sm bg-white">
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-32 lg:h-36 object-cover"
+          />
+        </div>
+
+        {/* Caption */}
+        <p className="text-sm mt-2">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+</div>
+
+<div className="bg-white">
+  <section className="max-w-5xl mx-auto px-4 py-10">
+  
+  {/*max-w-5xl mx-auto  Title */}
+  <h3 className="text-xl font-bold mb-6">
+    1509 Premium Basmati Rice
+  </h3>
+
+  {/* Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+    {[
+      { img: rice2, label: "1509 Steam Basmati Rice" },
+      { img: rice3, label: "1509 White Sella Basmati Rice" },
+      { img: rice4, label: "1509 Golden Sella Basmati Rice" },
+    ].map((item, i) => (
+      <div key={i}>
+        
+        {/* Image box */}
+        <div className="rounded-xl overflow-hidden shadow-sm bg-white">
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-32 lg:h-36 object-cover"
+          />
+        </div>
+
+        {/* Caption */}
+        <p className="text-sm mt-2">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+</div>
+
+<div className="bg-[#F9F9F9]">
+  <section className="max-w-5xl mx-auto px-4 py-10 ">
+  
+  {/* Title */}
+  <h3 className="text-xl font-bold mb-6">
+    1401 Premium Basmati Rice
+  </h3>
+
+  {/* Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+    {[
+      { img: rice2, label: "1401 Steam Basmati Rice" },
+      { img: rice3, label: "1401 White Sella Basmati Rice" },
+      { img: rice4, label: "1401 Golden Sella Basmati Rice" },
+    ].map((item, i) => (
+      <div key={i}>
+        
+        {/* Image box */}
+        <div className="rounded-xl overflow-hidden shadow-sm bg-white">
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-32 lg:h-36 object-cover"
+          />
+        </div>
+
+        {/* Caption */}
+        <p className="text-sm mt-2">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+</div>
+
+<div className="bg-white">
+  <section className="max-w-5xl mx-auto px-4 py-10">
+  
+  {/*max-w-5xl mx-auto  Title */}
+  <h3 className="text-xl font-bold mb-6">
+    PUSA Premium Basmati Rice
+  </h3>
+
+  {/* Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+    {[
+      { img: rice1, label: "PUSA Raw Basmati Rice" },
+      { img: rice2, label: "PUSA Steam Basmati Rice" },
+      { img: rice3, label: "PUSA White Sella Basmati Rice" },
+      { img: rice4, label: "PUSA Golden Sella Basmati Rice" },
+    ].map((item, i) => (
+      <div key={i}>
+        
+        {/* Image box */}
+        <div className="rounded-xl overflow-hidden shadow-sm bg-white">
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-32 lg:h-36 object-cover"
+          />
+        </div>
+
+        {/* Caption */}
+        <p className="text-sm mt-2">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+</div>
+
+<div className="bg-[#F9F9F9]">
+  <section className="max-w-5xl mx-auto px-4 py-10 ">
+  
+  {/* Title */}
+  <h3 className="text-xl font-bold mb-6">
+    Traditional Basmati Rice
+  </h3>
+
+  {/* Grid */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+    {[
+      { img: rice1, label: "Traditional Raw Basmati Rice" },
+      { img: rice2, label: "Traditional Steam Basmati Rice" },
+    ].map((item, i) => (
+      <div key={i}>
+        
+        {/* Image box */}
+        <div className="rounded-xl overflow-hidden shadow-sm bg-white">
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-32 lg:h-36 object-cover"
+          />
+        </div>
+
+        {/* Caption */}
+        <p className="text-sm mt-2">
+          {item.label}
+        </p>
+      </div>
+    ))}
+
+  </div>
+</section>
+
+
+</div>
+
+
+
+
+
+   <div
+  className="w-full h-[250px] bg-center bg-cover flex items-center justify-center mt-16"
+  style={{ backgroundImage: `url(${riceBanner})` }}
+>
+  <h2 className="text-white text-3xl font-extrabold tracking-wide">
+    PREMIUM BASMATI RICE
+  </h2>
+</div>
+
+
+<section className="max-w-6xl mx-auto px-4 pt-16 pb-0">
+
+  <div className="flex flex-col md:flex-row justify-around items-start md:items-center">
+
+    {/* LEFT — Text List */}
+    <ul className="space-y-4 lg:space-y-6 md:text-lg text-md font-semibold">
+      <li>Sugandha Non-Basmati Rice</li>
+      <li>Sharbati Non-Basmati Rice</li>
+      <li>Sona Masoori Rice</li>
+      <li>PR-11 Non-Basmati Rice</li>
+      <li>IR-64 Rice</li>
+    </ul>
+
+    {/* RIGHT — 2x2 Image Grid */}
+    <div className="grid grid-cols-2 gap-4">
+
+      {[rice5, rice6, rice7, rice8].map((img, i) => (
+        <div
+          key={i}
+          className=" overflow-hidden shadow-sm bg-white"
+        >
+          <img
+            src={img}
+            alt="Rice Type"
+            className="w-full lg:h-40 h-32 object-cover"
+          />
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
       </div>
 
       {/* Bottom CTA section */}
-      <div className="w-full bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="w-full bg-[#F5F5F5] mt-6">
+        <div className="max-w-4xl mx-auto px-4 py-12 text-center">
           <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
             Looking for a Reliable Product Supply?
           </h3>

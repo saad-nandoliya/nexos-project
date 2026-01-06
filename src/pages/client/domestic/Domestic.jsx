@@ -1,140 +1,157 @@
 import React from "react";
 
+import spice1 from "../../../../public/prodeImage/spice.jpg"
+import spice2 from "../../../../public/prodeImage/803bbef1fadd3ad17ccbc86a603287bc9ba04b3b.jpg"
+import spice3 from "../../../../public/prodeImage/7ec53cf94f3adcb04a0f401706d14cc0b7c750ca.jpg"
+import spice4 from "../../../../public/prodeImage/94c9835b1b9e9e1c85693b11b32d72e60b6cd6e5.jpg"
+import spice5 from "../../../../public/prodeImage/f6dbbde14215d8c68a37f1068584c4854d8fefdc.jpg"
+import spice6 from "../../../../public/prodeImage/sss.jpg"
+import spice7 from "../../../../public/prodeImage/9f067b515d301acc11918a71e9dbc68b85d9d252.jpg"
+import spice8 from "../../../../public/prodeImage/3876cf82a665dbfea66e7f82bc10951ed840f196.png"
+import spice9 from "../../../../public/prodeImage/5524cb20a3876055a2031fed823ffc4c2dc79450.png"
+import spice10 from "../../../../public/prodeImage/852627e292c0de537ed2750ef7fb2adb18f12a0c.png"
+import spice11 from "../../../../public/prodeImage/f3537cb1588c7621022e864e1e031fe1dc487d89.png"
+import spice12 from "../../../../public/prodeImage/38b939c4ad55e8428842667fbc650922d8ed81d4.png"
+import spice13 from "../../../../public/prodeImage/f94dae8878d60359002a2b67875d8814c7cf85de.png"
+import spice14 from "../../../../public/prodeImage/4dd05b307971aec6e54e9e956910fac66b660b1a.png"
+import spice15 from "../../../../public/prodeImage/95d2c22a62df85975d1e397bbb66c712349779d5.png"
+import spice16 from "../../../../public/prodeImage/91c6be6756aaa149f10a4c50e0d1ffe42165a326.png"
+import spice17 from "../../../../public/prodeImage/142a924f4684099a6aec5fd62fd2207f5227992a.png"
+import spice18 from "../../../../public/prodeImage/1f7bd7ca5672daff165177777d566859cea62f85.png"
+import spice19 from "../../../../public/prodeImage/618b879734f4132cfd996ea1b1f5682c25a91135.png"
+import spice20 from "../../../../public/prodeImage/ca6baaffe68f640459eeb8927bbec5f026d36920.png"
+
 const spicesProducts = [
   {
     id: 1,
     name: "Turmeric Powder",
-    image:
-      "https://images.pexels.com/photos/1438447/pexels-photo-1438447.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
+    image:spice1
+    },
   {
     id: 2,
     name: "Red Chilli Powder",
     image:
-      "https://images.pexels.com/photos/47347/chilli-ras-el-hanout-spices-spice-47347.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice2,
   },
   {
     id: 3,
     name: "Coriander Powder",
     image:
-      "https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice3,
   },
   {
     id: 4,
     name: "Cumin Powder",
     image:
-      "https://images.pexels.com/photos/4110254/pexels-photo-4110254.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice4,
   },
   {
     id: 5,
     name: "Garam Masala",
     image:
-      "https://images.pexels.com/photos/3730947/pexels-photo-3730947.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice5,
   },
   {
     id: 6,
     name: "Chicken Masala",
     image:
-      "https://images.pexels.com/photos/1117862/pexels-photo-1117862.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice6,
   },
   {
     id: 7,
     name: "Meat Masala",
     image:
-      "https://images.pexels.com/photos/1473728/pexels-photo-1473728.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice7,
   },
   {
     id: 8,
     name: "Pav Bhaji Masala",
     image:
-      "https://images.pexels.com/photos/3642717/pexels-photo-3642717.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice8,
   },
   {
     id: 9,
     name: "Chaat Masala",
     image:
-      "https://images.pexels.com/photos/6542791/pexels-photo-6542791.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice9,
   },
   {
     id: 10,
     name: "Kitchen King Masala",
     image:
-      "https://images.pexels.com/photos/6542790/pexels-photo-6542790.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice10,
   },
   {
     id: 11,
     name: "Sambhar Masala",
     image:
-      "https://images.pexels.com/photos/4109900/pexels-photo-4109900.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
+spice11  },
   {
     id: 12,
     name: "Biryani Masala",
     image:
-      "https://images.pexels.com/photos/5117639/pexels-photo-5117639.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
+spice12  },
   {
     id: 13,
     name: "Panipuri Masala",
     image:
-      "https://images.pexels.com/photos/4611425/pexels-photo-4611425.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
+spice13  },
   {
     id: 14,
     name: "Tea Masala",
     image:
-      "https://images.pexels.com/photos/4820740/pexels-photo-4820740.jpeg?auto=compress&cs=tinysrgb&w=600",
+spice14  ,
   },
   {
     id: 15,
     name: "Fish Masala",
     image:
-      "https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice15,
   },
   {
     id: 16,
     name: "Sabzi Masala",
     image:
-      "https://images.pexels.com/photos/763934/pexels-photo-763934.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice16,
   },
   {
     id: 17,
     name: "Rasam Powder",
     image:
-      "https://images.pexels.com/photos/1055058/pexels-photo-1055058.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice17,
   },
   {
     id: 18,
     name: "Curry Powder",
     image:
-      "https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice18,
   },
   {
     id: 19,
     name: "Tandoori Masala",
     image:
-      "https://images.pexels.com/photos/4110253/pexels-photo-4110253.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice19,
   },
   {
     id: 20,
     name: "Chole Masala",
     image:
-      "https://images.pexels.com/photos/4611428/pexels-photo-4611428.jpeg?auto=compress&cs=tinysrgb&w=600",
+      spice20,
   },
 ];
 
 function Domestic() {
   return (
-    <div className="min-h-screen w-full bg-white">
+    <div className="min-h-screen w-full bg-white pt-8">
       {/* Top title */}
-      <div className="w-full bg-white py-8">
+      <div className="w-full bg-[#EFEFEF] py-4">
         <h2 className="text-center text-xl md:text-2xl font-bold text-gray-900">
           SPICES & BLENDED MASALA
         </h2>
       </div>
 
       {/* Cards grid - with smaller, fixed-width cards */}
-      <div className="max-w-6xl mx-auto px-6 pb-12">
+      <div className="max-w-6xl mx-auto px-6 pb-12 pt-5">
         <div className="flex flex-wrap justify-center gap-6">
           {spicesProducts.map((product) => (
             <div

@@ -4,48 +4,57 @@ import heroImage from "../../../../public/prodeImage/heroImage.png";
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden">
-      {/* Hero Image - Full Width with top cropped on desktop */}
+    <section className="relative w-full overflow-hidden bg-white bottom-0">
+
+      {/* Hero Image */}
       <img
         src={heroImage}
         alt="Nexus Global Overseas - Exporters of Premium Indian Spices"
-        className="w-full h-[60vh] md:h-auto object-cover bg-white md:-mt-[110px]"
+        className="w-full h-[55vh] sm:h-[58vh] md:h-[60vh] lg:h-auto object-cover bg-white lg:-mt-[110px]"
       />
 
-      {/* Content Overlay - Positioned on the image */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 flex items-start">
-        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 w-full pt-16 md:pt-28 lg:pt-36">
-          <div className="max-w-md lg:max-w-lg bg-transparent p-4 md:p-0">
-            {/* Main Heading - Line 1 */}
-            <h1 className="text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 leading-tight">
+      {/* Content Overlay */}
+      <div className="absolute inset-0 flex md:items-start lg:left-40 md:left-0 md:bottom-28 top-20 left-2 sm:top-0  ">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-12 sm:pt-14 md:pt-24 lg:pt-36">
+          <div className="max-w-md lg:max-w-lg">
+
+            {/* Heading */}
+            <h1 className="text-md md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-800 leading-tight">
               Exporters of Premium
             </h1>
 
-            {/* Sub Heading - Line 2 */}
-            <h2 className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-700 mb-3 sm:mb-2 ">
-              Indian Spices & Food Products  <br />
-              <span className="text-sm sm:text-sm md:text-md font-normal">to the</span>{" "}
-              <span className="text-xl sm:text-lg md:text-xl lg:text-2xl font-bold">World</span>
+            {/* Sub Heading */}
+            <h2 className="text-xs md:text-sm lg:text-md xl:text-lg font-bold text-gray-700 mt-1 mb-2">
+              Indian Spices & Food Products {" "}
+              <span className="text-xs md:text-sm lg:text-sm font-normal">to the</span>{" "}
+              <span className="text-xs md:text-sm lg:text-md xl:text-lg  font-bold">
+                World
+              </span>
             </h2>
-            <div className="border-b border-gray-400 w-3/4 mb-3"></div>
-            
-            {/* Description with underline - Hidden on mobile */}
-            <div className="hidden md:block mb-5 sm:mb-4 md:mb-5">
-              <p className="text-xs sm:text-[10px] md:text-xs text-gray-600 pb-1 sm:pb-2 border-b border-gray-400 inline-block font-medium">
-                Manufactured by Abaad Masala & Co. (india) || Exported by Nexus Global Oversaes
+
+
+<div className="mb-7">
+            {/* Divider */}
+            <div className="border-b border-gray-400 md:w-3/4 w-2/4 "></div>
+              <p className="text-[5px] md:text-[9.7px] text-gray-600 pb-1  inline-block font-medium tracking-wide">
+                Manufactured by Abaad Masala & Co. (India) || Exported by Nexus Global Overseas
               </p>
-            </div>
+            <div className="border-b border-gray-400 md:w-3/4 w-2/4 mb-2"></div>
+
+
+</div>
 
             {/* CTA Button */}
             <NavLink
               to="/contact"
-              className="inline-block px-6 md:px-6 py-2.5 md:py-2.5 text-white text-sm md:text-sm font-semibold rounded transition-all duration-300 hover:opacity-90 hover:shadow-lg"
-              style={{ backgroundColor: "#F58634", color: "white" }}
-              onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}
-              onMouseLeave={e => e.target.style.backgroundColor = "#F58634"}
+              className="inline-block px-5 md:px-6 py-2 md:py-2.5 text-white text-xs sm:text-sm md:text-sm font-semibold rounded transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+              style={{ backgroundColor: "#F58634" }}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#d96b20")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#F58634")}
             >
               Get a Quote
             </NavLink>
+
           </div>
         </div>
       </div>

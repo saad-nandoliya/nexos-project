@@ -1,47 +1,54 @@
 import React from 'react';
 
+import lead1 from "../../../../public/prodeImage/lead1.png";
+import lead2 from "../../../../public/prodeImage/1dba76b78dbfed39b930b9ba0dbfa3a1a877d544.jpg";
+import lead3 from "../../../../public/prodeImage/e31dad5f4882d565bb72dada104a9ae7a6f47bbb.jpg";
+import lead4 from "../../../../public/prodeImage/9536bb300fd51480518ac92a9096078b0b6b5e8d.png";
+import lead5 from "../../../../public/prodeImage/ef9b13a73e8508b5095405a77bbf620fd3d90158.png";
+import lead6 from "../../../../public/prodeImage/f7c5ae2aa2a6b21da41041a500600ddcf1422c2f.png";
+
 const teamMembers = [
   {
     name: "NIZAMUDDIN MANASIYA",
     role: "Founding Executive Director",
     company: "Abaad Masala & Co.",
     desc: "Having started his journey in spice industry, he has worked his way up and has broad experience across different industrial sectors with a strong focus on quality control and export compliance.",
-    image: "https://randomuser.me/api/portraits/men/1.jpg"
+    image: lead1
   },
   {
     name: "BILAL VADANAGRA",
     role: "Director Manufacturing & Projects",
     company: "Abaad Masala & Co.",
     desc: "Specializing in spice manufacturing operations and quality assurance, he has been instrumental in scaling production capacity and maintaining international food safety standards.",
-    image: "https://randomuser.me/api/portraits/men/2.jpg"
+    image: lead2
   },
   {
     name: "RIZWAN VADANAGRA",
     role: "Head - Manufacturing & Operations",
     company: "Abaad Masala & Co.",
     desc: "He started his journey in the spice industry, worked through various manufacturing sectors and holds more than 15 years experience in operational excellence and process optimization.",
-    image: "https://randomuser.me/api/portraits/men/3.jpg"
+    image: lead3
   },
   {
     name: "NASREEN MANENKOTA",
     role: "Head - Plant Operations",
     company: "Abaad Masala & Co.",
     desc: "Brings a wealth of experience in logistics, warehouse management, and inventory control with expertise in maintaining hygiene standards and production efficiency.",
-    image: "https://randomuser.me/api/portraits/women/1.jpg"
+    image: lead4
   },
   {
     name: "M HUSAIN SHELIYA",
     role: "Head - Import/Export Operations",
     company: "Nexus Global Overseas",
     desc: "Handles all international dealings, including logistics, documentation, compliance with foreign trade policies, and building relationships with global buyers.",
-    image: "https://randomuser.me/api/portraits/men/4.jpg"
+    image: lead5
   },
   {
     name: "MOHAMMAD MUNSHI",
     role: "Head - Sales & Business Development",
     company: "Nexus Global Overseas",
     desc: "Works closely with international clients to understand their needs, develop customized export solutions, and ensure long-term partnerships.",
-    image: "https://randomuser.me/api/portraits/men/5.jpg"
+    image: lead6
   },
 ];
 
@@ -65,7 +72,7 @@ const LeadershipTeam = () => {
       </section>
 
       {/* --- Intro Section --- */}
-      <section className="bg-white py-8 px-6">
+      <section className="bg-[#F9F9F9] py-8 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Driven by Capability. Guided by Responsibility.
@@ -118,7 +125,7 @@ const LeadershipTeam = () => {
       </section>
 
       {/* --- Core Values --- */}
-      <section className="py-16 px-6 bg-white border-t border-gray-100">
+      <section className="py-16 px-6 bg-[#F9F9F9] border-t border-gray-100">
         <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {values.map((v, i) => (
             <div key={i} className="hover:scale-105 transition-transform duration-300">
@@ -130,7 +137,7 @@ const LeadershipTeam = () => {
       </section>
 
       {/* --- Footer / CTA --- */}
-      <section className="py-16 px-6 text-center bg-white">
+      <section className="py-16 px-6 text-center bg-[#F9F9F9]">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
           Leadership You Can Trust
         </h2>
