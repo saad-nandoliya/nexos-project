@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
     companyName: '',
     email: '',
     country: '',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [result, setResult] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -17,23 +18,44 @@ const ContactPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can add your own form submission logic
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
-        country: '',
-        message: ''
+    setResult("Sending....");
+    const formDataObj = new FormData(e.target);
+
+    // Append access key
+    formDataObj.append("access_key", "f861a82a-7fc3-4e41-a957-7a00fa0d9a8b");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataObj
       });
-    }, 3000);
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        setResult("Success!");
+        setFormData({
+            name: '',
+            companyName: '',
+            email: '',
+            country: '',
+            message: ''
+        });
+        
+        // Reset success message after 5 seconds if desired
+        // setTimeout(() => setIsSubmitted(false), 5000);
+
+      } else {
+        console.log("Error", data);
+        setResult(data.message || "Error submitting form");
+      }
+    } catch (error) {
+      console.log("Error", error);
+      setResult("Something went wrong!");
+    }
   };
 
   return (
@@ -112,18 +134,19 @@ and partners. Our team responds promptly to all export-related inquiries.
               <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                 <p className="text-green-700 font-semibold mb-2">Thank you for your inquiry!</p>
                 <p className="text-green-600 text-sm">We'll get back to you shortly.</p>
+                <button onClick={() => setIsSubmitted(false)} className='text-xs text-gray-500 underline mt-4'>Send another response</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="fullName" className="text-sm font-medium text-gray-700 block mb-2">
+                  <label htmlFor="name" className="text-sm font-medium text-gray-700 block mb-2">
                     Full Name
                   </label>
                   <input 
-                    id="fullName"
+                    id="name"
                     type="text" 
-                    name="fullName"
-                    value={formData.fullName}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all text-gray-900" 
@@ -189,12 +212,18 @@ and partners. Our team responds promptly to all export-related inquiries.
                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#1a6a84] focus:border-transparent outline-none bg-white transition-all resize-none text-gray-900"
                   ></textarea>
                 </div>
+                
+                {/* Result Message for Errors */}
+                {result && result !== "Success!" && result !== "Sending...." && (
+                    <p className="text-red-500 text-sm">{result}</p>
+                )}
 
                 <button 
                   type="submit"
-                  className="w-full bg-[#f38d39] hover:bg-[#e27d28] text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
+                  className="w-full bg-[#f38d39] hover:bg-[#e27d28] text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg flex justify-center items-center"
+                  disabled={result === "Sending...."}
                 >
-                  Submit Export Inquiry
+                  {result === "Sending...." ? "Sending..." : "Submit Export Inquiry"}
                 </button>
               </form>
             )}
