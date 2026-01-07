@@ -4,18 +4,18 @@ import aboutImage from "../../../../public/prodeImage/aboutImafe.png";
 
 const AboutUsSection = () => {
   return (
-    <section className="py-22 md:py-0 mt-0 bg-white">
+    <section className="py-10 md:py-0 mt-0 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 lg:py-14 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 items-center">
 
           {/* Image Section - Left */}
           {/* Image Section - Left Desktop, Bottom Mobile */}
-          <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+          <div className="flex justify-center lg:justify-start  order-2 lg:order-1">
             <img
               src={aboutImage}
               loading="lazy"
               alt="Nexus Global Overseas - Premium Spices"
-              className="w-1/2 max-w-md md:max-w-lg lg:max-w-2xl h-auto object-contain mx-auto"
+              className="w-1/2 max-w-2xl md:w-md lg:w-lg h-auto object-contain mx-auto"
             />
           </div>
 
@@ -23,16 +23,47 @@ const AboutUsSection = () => {
           <div className="text-center lg:text-left order-1 lg:order-2">
             {/* Title with double underline */}
             <div className="mb-3 md:mb-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 inline-block">
-                <span style={{ color: "#1a5a6e" }}>Who We Are</span>
-                <span style={{ color: "#e07b3c" }}>?</span>
-              </h2>
-              {/* Two lines under heading */}
-              <div className="hidden lg:flex flex-col gap-0.5 mt-1">
-                <div className="h-0.5 w-28 md:w-52" style={{ backgroundColor: "#1a5a6e" }}></div>
-                <div className="h-0.5 w-20 md:w-52" style={{ backgroundColor: "#1a5a6e" }}></div>
-              </div>
-            </div>
+
+  {/* Heading */}
+  <h2 className="
+    text-2xl md:text-3xl lg:text-4xl 
+    font-bold text-gray-800 
+    inline-flex items-center gap-1
+  ">
+    <span style={{ color: "#1a5a6e" }}>Who We Are</span>
+
+    {/* ? with color + shadow */}
+    <span
+      style={{
+        color: "white",
+        textShadow: "0px 1px 2px rgba(0,0,0,0.35)",
+        fontWeight: 700,
+        fontSize: "4rem",
+        fontFamily: "Calibri",
+        borderRadius: "50%"
+      }}
+    >
+      ?
+    </span>
+  </h2>
+
+  {/* Double underline — mobile center / desktop left */}
+  <div className="
+    flex flex-col gap-[3px] mt-1
+    items-center md:items-start
+  ">
+    <div
+      className="h-[2px] w-24 sm:w-28 md:w-52"
+      style={{ backgroundColor: "#1a5a6e" }}
+    ></div>
+
+    <div
+      className="h-[2px] w-16 sm:w-20 md:w-52"
+      style={{ backgroundColor: "#1a5a6e" }}
+    ></div>
+  </div>
+</div>
+
 
             {/* Description */}
             <div className="space-y-3 mb-4 md:mb-6">

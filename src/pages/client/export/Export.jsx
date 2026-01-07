@@ -279,7 +279,7 @@ function Export() {
   style={{ backgroundImage: `url(${riceBanner})` }}
 >
   <h2 className="text-white text-3xl font-extrabold tracking-wide">
-    PREMIUM BASMATI RICE
+    NON BASMATI RICE
   </h2>
 </div>
 
@@ -293,7 +293,7 @@ function Export() {
       <li>Sugandha Non-Basmati Rice</li>
       <li>Sharbati Non-Basmati Rice</li>
       <li>Sona Masoori Rice</li>
-      <li>PR-11 Non-Basmati Rice</li>
+      <li>PR 11 Non-Basmati Rice</li>
       <li>IR-64 Rice</li>
     </ul>
 

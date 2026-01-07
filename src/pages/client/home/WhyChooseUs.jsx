@@ -66,7 +66,9 @@ const WhyChooseUs = () => {
           {/* Header with decorative line */}
           <div className="relative mb-6 sm:mb-8 md:mb-10 w-full">
             <img src={image1} alt="decoration" className="w-full h-3 sm:h-4 md:h-5 object-contain" />
-            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 sm:px-4 text-gray-700 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap">
+            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 sm:px-4 text-gray-700 text-sm sm:text-base md:text-xl lg:text-[27px] font-medium whitespace-nowrap"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+            >
               Our Brands & Partners
             </h2>
           </div>
@@ -96,7 +98,7 @@ const WhyChooseUs = () => {
           {/* Header with decorative line */}
           <div className="relative mb-4 sm:mb-6 md:mb-8 w-full">
             <img src={image5} alt="decoration" className="w-full h-3 sm:h-4 md:h-5 object-contain" />
-            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 sm:px-4 text-white text-sm sm:text-base md:text-lg font-semibold whitespace-nowrap" >
+            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 sm:px-4 text-white text-sm sm:text-base md:text-lg lg:text-[27px] font-semibold whitespace-nowrap" >
               Our Product Range
             </h2>
           </div>
@@ -109,7 +111,7 @@ const WhyChooseUs = () => {
                   <img src={p.img} alt={p.label} className="w-full h-28 sm:h-36 md:h-44 object-cover" />
                 </div>
                 <div
-                  className="inline-block px-2 sm:px-3 py-1 text-white text-[8px] sm:text-[10px] md:text-xs font-medium rounded relative -top-3 sm:-top-4 md:-top-5"
+                  className="inline-block px-2 sm:px-3 py-1 text-white text-[8px] sm:text-[10px] md:text-xs font-medium rounded relative -top-3 sm:-top-4 md:-top-5 w-[150px]"
                   style={{ backgroundColor: "#e07b3c" }}
                 >
                   {p.label}
@@ -121,7 +123,7 @@ const WhyChooseUs = () => {
           {/* View All Products Button */}
           <div className="text-center">
             <NavLink
-              to="/products"
+              to="/Spices&BlendedMasalas"
               className="inline-block px-6 sm:px-8 py-2 sm:py-2.5 bg-white text-gray-800 text-xs sm:text-sm font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition-all"
               style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}
                  onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}   // darker color
@@ -141,7 +143,9 @@ const WhyChooseUs = () => {
           {/* Header with decorative line */}
           <div className="relative mb-6 sm:mb-8 md:mb-10 w-full">
             <img src={image1} alt="decoration" className="w-full h-3 sm:h-4 md:h-5 object-contain" />
-            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 sm:px-4 text-gray-700 text-sm sm:text-base md:text-lg font-medium whitespace-nowrap">
+            <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 sm:px-2 text-gray-700 text-sm sm:text-base md:text-lg lg:text-[27px] font-medium whitespace-nowrap"
+            style={{ fontFamily: "Bricolage Grotesque" }}
+            >
               Why choose US
             </h2>
           </div>
@@ -169,13 +173,17 @@ const WhyChooseUs = () => {
       {/* ===== OUR TRUSTED CLIENTS ===== */}
       <section className="py-6 sm:py-8 md:py-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4"
+          style={{ fontFamily: "Bricolage Grotesque" }}
+          >
             Our trusted Client's
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed "
+          style={{ fontFamily: "Arial" }}
+          >
 Nexus Global Overseas is trusted by importers, distributors, and brand owners worldwide. 
 We work closely with our clients across international markets to build long-term, 
-reliable partnerships based on trust, quality, and consistency.          </p>
+reliable partnerships based on trust, quality, and consistency.         </p>
         </div>
       </section>
 
@@ -186,13 +194,13 @@ reliable partnerships based on trust, quality, and consistency.          </p>
 
             {/* Left - Text */}
             <div className="w-full md:w-1/3 text-center md:text-left">
-              <p className="italic text-sm sm:text-base md:text-2xl font-normal mb-1" style={{ color: "#1a5a6e", fontFamily: "Indie Flower, cursive" }}>
+              <p className="italic text-sm sm:text-base md:text-2xl font-normal mb-1" style={{ color: "#1a5a6e", fontFamily: "Basha" }}>
                 We Export to Over
               </p>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: "#1a5a6e", fontFamily:"Bebas Neue, sans-serif" }}>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: "#1a5a6e", fontFamily:"BellCent BdList BT" }}>
                 5+ <span className="uppercase">Countries</span>
               </h3>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold uppercase" style={{ color: "#1a5a6e", fontFamily:"Bebas Neue, sans-serif" }}>
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold uppercase" style={{ color: "#1a5a6e", fontFamily:"BellCent BdList BT" }}>
                 Worldwide
               </p>
             </div>
@@ -216,7 +224,7 @@ reliable partnerships based on trust, quality, and consistency.          </p>
         style={{ backgroundImage: `url(${image16})` }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 italic">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
             LET'S DO BUSINESS TOGETHER
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-white/90 mb-4 sm:mb-6">

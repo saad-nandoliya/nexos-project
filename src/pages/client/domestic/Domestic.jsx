@@ -24,117 +24,117 @@ import spice20 from "../../../../public/prodeImage/ca6baaffe68f640459eeb8927bbec
 const spicesProducts = [
   {
     id: 1,
-    name: "Turmeric Powder",
+    name: "RED CHILLI",
     image:spice1
     },
   {
     id: 2,
-    name: "Red Chilli Powder",
+    name: "TURMERIC",
     image:
       spice2,
   },
   {
     id: 3,
-    name: "Coriander Powder",
+    name: "CUMIN SEADS",
     image:
       spice3,
   },
   {
     id: 4,
-    name: "Cumin Powder",
+    name: "CORIENDER SEADS",
     image:
       spice4,
   },
   {
     id: 5,
-    name: "Garam Masala",
+    name: "FENUGREEK SEEDS",
     image:
       spice5,
   },
   {
     id: 6,
-    name: "Chicken Masala",
+    name: "FENNEL SEEDS",
     image:
       spice6,
   },
   {
     id: 7,
-    name: "Meat Masala",
+    name: "MUSTARD SEEDS",
     image:
       spice7,
   },
   {
     id: 8,
-    name: "Pav Bhaji Masala",
+    name: "RED CHILLI POWDER",
     image:
       spice8,
   },
   {
     id: 9,
-    name: "Chaat Masala",
+    name: "CORIENDER POWDER",
     image:
       spice9,
   },
   {
     id: 10,
-    name: "Kitchen King Masala",
+    name: "CUMIN POWDER",
     image:
       spice10,
   },
   {
     id: 11,
-    name: "Sambhar Masala",
+    name: "TURMERIC POWDER",
     image:
 spice11  },
   {
     id: 12,
-    name: "Biryani Masala",
+    name: "BLACK PEPPER POWDER",
     image:
 spice12  },
   {
     id: 13,
-    name: "Panipuri Masala",
+    name: "CHICKEN TIKKA MASALA",
     image:
 spice13  },
   {
     id: 14,
-    name: "Tea Masala",
+    name: "CHICKEN POWDER",
     image:
 spice14  ,
   },
   {
     id: 15,
-    name: "Fish Masala",
+    name: "CHAAT MASALA",
     image:
       spice15,
   },
   {
     id: 16,
-    name: "Sabzi Masala",
+    name: "FISH FRY MASALA ",
     image:
       spice16,
   },
   {
     id: 17,
-    name: "Rasam Powder",
+    name: "GARAM MASALA POWDER",
     image:
       spice17,
   },
   {
     id: 18,
-    name: "Curry Powder",
+    name: "VEG BIRYANI MASALA",
     image:
       spice18,
   },
   {
     id: 19,
-    name: "Tandoori Masala",
+    name: "WHITE CHINESE MASALA",
     image:
       spice19,
   },
   {
     id: 20,
-    name: "Chole Masala",
+    name: "YELLOW CHILLI POWDER",
     image:
       spice20,
   },

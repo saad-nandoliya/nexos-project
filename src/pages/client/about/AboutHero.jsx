@@ -35,10 +35,32 @@ with complete responsibility — from manufacturing to global delivery.
             </button>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-end">
-            <StatBox value="50 TPD" label="Production Capacity" bgColor="bg-[#1e5a7d]" />
-            <StatBox value="70+" label="Global Countries" bgColor="bg-[#1e5a7d]" />
-          </div>
+          <div className="w-full flex justify-center">
+  <div className="bg-[#1B6D8C] text-white rounded-xl px-8 py-6 grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 max-w-2xl">
+    
+    <div>
+      <p className="text-2xl font-bold">10 TPD</p>
+      <p className="text-sm opacity-90">Production Capacity</p>
+    </div>
+
+    <div>
+      <p className="text-2xl font-bold">45+</p>
+      <p className="text-sm opacity-90">Skilled Staff</p>
+    </div>
+
+    <div>
+      <p className="text-2xl font-bold">100%</p>
+      <p className="text-sm opacity-90">Export Focused</p>
+    </div>
+
+    <div>
+      <p className="text-2xl font-bold">Global</p>
+      <p className="text-sm opacity-90">Market Reach</p>
+    </div>
+
+  </div>
+</div>
+
         </div>
 
         {/* Wave positioned at bottom of hero section, overlapping both sections */}
@@ -76,6 +98,7 @@ supported by our own manufacturing foundation in India.
           <div className="mt-8 max-w-4xl mx-auto text-center space-y-4">
             <p className="text-gray-700 leading-relaxed text-base md:text-lg">
 
+
 Nexus Global Overseas was created with a clear purpose — to give India’s manufacturing 
 capability a structured, responsible global presence.
 For years, our manufacturing unit Abaad Masala & Co. produced high-quality spices with 
@@ -100,8 +123,8 @@ transparency, accountability, and capability.
         </h2>
         
         <p className="text-center text-gray-600 mt-4 text-sm md:text-base max-w-3xl mx-auto">
-Our export strength is powered by our own large-scale manufacturing infrastructure.        </p>
-
+Our export strength is powered by our own large-scale manufacturing infrastructure.
+        </p>
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <InfoCard 
             title="OWN MANUFACTURING FACILITY" 
@@ -109,12 +132,12 @@ Our export strength is powered by our own large-scale manufacturing infrastructu
 consistency, hygiene, and scalability."
           />
           <InfoCard 
-            title="60 TPD CAPACITY" 
+            title="10 TPD CAPACITY" 
             description="High-volume output built for bulk export
 and long-term contracts."
           />
           <InfoCard 
-            title="70+ PROFESSIONALS" 
+            title="45+ PROFESSIONALS" 
             description="A skilled team managing production,
 quality 
 and export operations."
@@ -146,19 +169,19 @@ Confidence through our white-label manufacturing and export solutions.
 
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span className=" font-bold mr-3">•</span>
                   <span>Manufacturing under your brand</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span className=" font-bold mr-3">•</span>
                   <span>Custom packaging & labeling</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span className=" font-bold mr-3">•</span>
                   <span>Country-specific compliance</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-3">•</span>
+                  <span className=" font-bold mr-3">•</span>
                   <span>Confidential and reliable execution</span>
                 </li>
               </ul>
@@ -184,8 +207,7 @@ Confidence through our white-label manufacturing and export solutions.
         </h2>
 
         <p className="text-gray-600 mt-4 text-lg">
-          Your Reliable Partner for Premium Indian Exports
-        </p>
+Your Reliable Manufacturing and Export Partner From India.        </p>
 
         <button className="mt-8 bg-gradient-to-r  text-white px-10 py-4 rounded-lg font-semibold  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                         style={{ backgroundColor: "#F58634" , color: "white", hover: "opacity-80" }}

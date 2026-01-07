@@ -7,8 +7,8 @@ import facility4 from "../../../../public/prodeImage/b6411d49fdcc50bb84c39800bd9
 import facility5 from "../../../../public/prodeImage/3fc139eccc8687a819d1d217c5fdd09ce2fb8017.jpg";
 
 const stats = [
-  { value: "60+", label: "Metric Tons / Day Capacity" },
-  { value: "70+", label: "Skilled Workforce" },
+  { value: "10+", label: "Metric Tons / Day Capacity" },
+  { value: "45+", label: "Skilled Workforce" },
   { value: "Multiple", label: "Automated Processing Lines" },
   { value: "Export", label: "Grade Infrastructure" },
 ];
@@ -32,8 +32,8 @@ const Infrastructure = () => {
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Built to Manufacture. Ready to Export.</h1>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto">
-            Our infrastructure is designed to support large-scale manufacturing, strict quality control, and uninterrupted export supply for global markets.
-          </p>
+Our infrastructure is designed to support large-scale manufacturing, strict quality control, and 
+uninterrupted export supply for global markets.          </p>
         </div>
       </section>
 
@@ -49,9 +49,11 @@ const Infrastructure = () => {
               Manufacturing Facility
             </h2>
             <p className="text-gray-600 text-base leading-relaxed">
-              The manufacturing backbone of Nexus Global Overseas operates under Abaad Masala & Co. in India. 
-              Our facility is equipped with modern machinery, scalable production lines, and export-focused systems 
-              to meet global demand efficiently.
+              The manufacturing backbone of Nexus Global Overseas 
+operates under Abaad Masala & Co. in India. 
+Our facility is equipped with modern machinery, scalable 
+production lines, and export-focused systems to meet 
+global demand efficiently.
             </p>
           </div>
           
@@ -94,7 +96,9 @@ const Infrastructure = () => {
 
       {/* --- PROCESS FLOW --- */}
       <section className="py-20 px-6 bg-white text-center">
-        <span className="text-[#f38d39] text-xs font-semibold uppercase tracking-wider mb-3 block">
+        <span className="text-[#f38d39] text-xs md:text-lg font-semibold tracking-wider mb-3 block "
+        style={{letterSpacing: "5px"}}
+        >
           Process Flow
         </span>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
@@ -119,8 +123,9 @@ const Infrastructure = () => {
             <span className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-2 block">Quality & Safety</span>
             <h2 className="text-3xl font-bold mb-6">Export-Grade Quality Systems</h2>
             <p className="text-blue-100 mb-6 text-sm">
-              Our infrastructure follows strict hygiene, safety, and quality protocols to ensure compliance with international food standards and buyer specifications:
-            </p>
+Our infrastructure follows strict hygiene, safety, and quality protocols to
+ensure compliance with international food standards and buyer 
+specifications.            </p>
             <ul className="space-y-3 text-sm font-medium">
               <li className="flex items-center">
                 <span className="mr-2 text-blue-300">•</span> Controlled production environment

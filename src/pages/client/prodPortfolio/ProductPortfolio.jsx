@@ -9,14 +9,14 @@ import prod3 from "../../../../public/prodeImage/794ff34af8b87a14d56322ff16ee0de
 const productCategories = [
   {
     title: "Spices & Blended Masalas",
-    desc: "Premium quality spices sourced from the best farms to ensure the authenticity of taste globally.",
+    desc: "Premium Indian spices and blended masalas manufactured under strict quality control for consistent taste, aroma, and color.",
     link: "Read Product",
     path: "/Spices&BlendedMasalas",
     image: prod1
   },
   {
     title: "Rice (Export Grade)",
-    desc: "Long grain Basmati & Non-Basmati rice suitable for global cuisines and long-term distribution.",
+    desc: "Carefully sourced and processed rice varieties suitable for global cuisines and international distribution.",
     link: "Read Product",
     path: "/RiceExportGrade",
     image: prod2
@@ -24,10 +24,10 @@ const productCategories = [
 ];
 
 const features = [
-  { title: "Export Only", detail: "Dedicated to international shipping" },
-  { title: "In-House", detail: "Production at Abaad Masala & Co" },
-  { title: "Custom", detail: "Tailored specifications" },
-  { title: "Global", detail: "Meeting international demand" }
+  { title: "Export Only", detail: "Products designed exclusively for global markets" },
+  { title: "In-House", detail: "Manufactured at Abaad Masala & Co." },
+  { title: "Custom", detail: "Flexible specs & private label options" },
+  { title: "Global", detail: "60 TPD manufacturing capacity" }
 ];
 
 const ProductPortfolio = () => {
@@ -44,8 +44,8 @@ const ProductPortfolio = () => {
           </span>
           <h1 className="text-3xl md:text-5xl font-bold mb-4">Products Crafted for Global Markets</h1>
           <p className="text-blue-100 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-            Manufactured in India at Abaad Masala & Co. and exported worldwide by Nexus Global Overseas under our international export brand Nexus Global Foods.
-          </p>
+Manufactured in India at Abaad Masala & Co. and exported worldwide by Nexus Global 
+Overseas under our international export brand Nexus Global Foods.          </p>
         </div>
       </section>
 
@@ -59,8 +59,8 @@ const ProductPortfolio = () => {
             Export-Grade Product Categories
           </h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto mb-12">
-            Our product portfolio is developed exclusively for international buyers, distributors, and private-label partners.
-          </p>
+Our product portfolio is developed exclusively for international buyers, distributors, and private-label 
+partners.          </p>
 
       <div className="flex flex-wrap justify-center gap-10">
   {productCategories.map((item, idx) => (
@@ -111,19 +111,19 @@ const ProductPortfolio = () => {
       <section className="bg-[#1a6a84] py-20 px-6">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 text-white animate-slide-in-left">
-            <span className="text-[#f38d39] text-xs font-bold uppercase tracking-widest mb-4 block">
+            <span className=" text-xs font-bold uppercase tracking-widest mb-4 block">
               Private Label Solutions
             </span>
             <h2 className="text-3xl font-bold mb-6 leading-tight">
               White Label & Custom Export Products
             </h2>
             <p className="text-blue-100 mb-8 text-sm">
-              We support global brands in building their own offering through our comprehensive custom export services:
-            </p>
+We support global buyers in building their own brands by offering 
+complete white-label manufacturing and export solutions.            </p>
             <ul className="space-y-4 text-sm">
-              {["Manufacturing under buyer's brand", "Customized packaging & labeling", "Tailored product specifications", "Reliable pick & pack & bulk supply"].map((text, i) => (
+              {["Manufacturing under buyer's brand", "Customized packaging & labeling", "Destination-country compliance", "Flexible pack sizes & bulk supply"].map((text, i) => (
                 <li key={i} className="flex items-center">
-                  <span className="w-1.5 h-1.5 bg-[#f38d39] rounded-full mr-3"></span>
+                  <span className="w-1.5 h-1.5 bg-[white] rounded-full mr-3"></span>
                   {text}
                 </li>
               ))}

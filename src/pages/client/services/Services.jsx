@@ -48,8 +48,8 @@ const Services = () => {
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">End-to-End Export Services</h1>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
-            From manufacturing coordination to global delivery, Nexus Global Overseas handles every stage of the export process with responsibility and precision.
-          </p>
+From manufacturing coordination to global delivery, Nexus Global Overseas handles every 
+stage of the export process with responsibility and precision.          </p>
         </div>
       </section>
 
@@ -64,8 +64,7 @@ const Services = () => {
               Our Core Export Services
             </h2>
             <p className="text-gray-600">
-              Designed exclusively for international buyers, distributors, and private-label partners.
-            </p>
+Designed exclusively for international buyers, distributors, and private-label partners.            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,8 +89,7 @@ const Services = () => {
               A Responsible Export Partner
             </h2>
             <p className="text-blue-100 mb-8 text-base leading-relaxed">
-              We don't operate as brokers or traders. Our services are backed by real manufacturing, real infrastructure, and real accountability.
-            </p>
+We don’t operate as brokers or traders. Our services are backed by real manufacturing, real infrastructure, and real accountability.            </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((feature, idx) => (

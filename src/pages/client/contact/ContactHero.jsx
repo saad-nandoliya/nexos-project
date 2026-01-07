@@ -48,7 +48,8 @@ const ContactPage = () => {
             Let's Build a Global Trade Partnership
           </h1>
           <p className="text-blue-100 max-w-2xl text-sm md:text-base">
-            Reach out to us for export inquiries, private label opportunities, or long-term supply partnerships.
+Reach out to us for export inquiries, private label opportunities, or long-term 
+supply partnerships.
           </p>
         </div>
       </section>
@@ -67,8 +68,8 @@ const ContactPage = () => {
                 We're Ready to Support Your<br />Export Needs
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-                Nexus Global Overseas works exclusively with international buyers and partners. 
-                Our team responds promptly to all export-related inquiries.
+               Nexus Global Overseas works exclusively with international buyers 
+and partners. Our team responds promptly to all export-related inquiries.
               </p>
             </div>
 
@@ -86,7 +87,7 @@ const ContactPage = () => {
                 <span className="font-bold">Email:</span> contact@nexusglobaloverseas.com
               </p>
               <p>
-                <span className="font-bold">Phone / WhatsApp:</span> +91 XXXXX XXXXX
+                <span className="font-bold">Phone / WhatsApp:</span> +91 95743 29365
               </p>
               <p className="leading-relaxed">
                 <span className="font-bold">Location:</span> Survey No 1767, Manasiya Motar Garej,<br />

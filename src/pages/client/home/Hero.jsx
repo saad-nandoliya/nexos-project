@@ -19,15 +19,23 @@ const Hero = () => {
           <div className="max-w-md lg:max-w-lg">
 
             {/* Heading */}
-            <h1 className="text-md md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-bold text-gray-800 leading-tight">
+            <h1 className="text-md md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl font-bold text-gray-800 leading-tight"
+             style={{ fontFamily: "Aparajita" }}
+            >
               Exporters of Premium
             </h1>
 
             {/* Sub Heading */}
-            <h2 className="text-xs md:text-sm lg:text-md xl:text-lg 2xl:text-2xl 3xl:text-3xl font-bold text-gray-700 mt-1 mb-2">
+            <h2 className="text-xs md:text-sm lg:text-md xl:text-lg 2xl:text-2xl 3xl:text-3xl font-bold text-gray-700 mt-1 mb-2"
+            style={{ fontFamily: "Aparajita" }}
+            >
               Indian Spices & Food Products {" "}
-              <span className="text-xs md:text-sm lg:text-sm font-normal">to the</span>{" "}
-              <span className="text-xs md:text-sm lg:text-md xl:text-lg  font-bold">
+              <span className="text-xs md:text-sm lg:text-sm font-normal"
+              style={{ fontFamily: "Aparajita" }}
+              >to the</span>{" "}
+              <span className="text-xs md:text-sm lg:text-md xl:text-lg  font-bold"
+              style={{ fontFamily: "Aparajita" }}
+              >
                 World
               </span>
             </h2>
@@ -36,7 +44,9 @@ const Hero = () => {
 <div className="mb-7">
             {/* Divider */}
             <div className="border-b border-gray-400 md:w-3/4 w-2/4 2xl:w-full "></div>
-              <p className="text-[5px] md:text-[9.7px]  2xl:text-[12.8px] 3xl:text-[14px] text-gray-600 pb-1  inline-block font-medium tracking-wide">
+              <p className="text-[5px] md:text-[9.7px]  2xl:text-[12.8px] 3xl:text-[14px] text-gray-600 pb-1  inline-block font-medium tracking-wide"
+              style={{ fontFamily: "Arial" }}
+              >
                 Manufactured by Abaad Masala & Co. (India) || Exported by Nexus Global Overseas
               </p>
             <div className="border-b border-gray-400 md:w-3/4 w-2/4 2xl:w-full mb-2"></div>
