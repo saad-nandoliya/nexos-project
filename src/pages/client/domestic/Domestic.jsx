@@ -20,6 +20,7 @@ import spice17 from "../../../../public/prodeImage/142a924f4684099a6aec5fd62fd22
 import spice18 from "../../../../public/prodeImage/1f7bd7ca5672daff165177777d566859cea62f85.png"
 import spice19 from "../../../../public/prodeImage/618b879734f4132cfd996ea1b1f5682c25a91135.png"
 import spice20 from "../../../../public/prodeImage/ca6baaffe68f640459eeb8927bbec5f026d36920.png"
+import { NavLink } from "react-router-dom";
 
 const spicesProducts = [
   {
@@ -204,6 +205,7 @@ function Domestic() {
           <p className="text-xs sm:text-sm text-gray-600 mb-6">
             Partner with a manufacturer-backed export company.
           </p>
+          <NavLink to="/contact" >
           <button
             type="button"
             className="inline-flex items-center justify-center px-7 sm:px-12 py-2.5 sm:py-3 text-sm sm:text-base
@@ -213,6 +215,7 @@ function Domestic() {
           >
             Build Your Supply
           </button>
+          </NavLink>
         </div>
       </div>
     </div>

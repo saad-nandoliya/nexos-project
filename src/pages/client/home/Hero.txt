@@ -4,7 +4,7 @@ import heroImage from "../../../../public/prodeImage/heroImage.png";
 
 const Hero = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-[#F2F2F2] md:bg-white">
+    <section className="relative w-full overflow-hidden">
 
       {/* Image Wrapper */}
       <div className="relative md:-top-16">
@@ -26,19 +26,15 @@ const Hero = () => {
               Exporters of Premium
             </h1>
 
-            {/* Line 2 — FIXED HERE */}
+            {/* Line 2 */}
             <h2
               style={{ fontFamily: "Aparajita" }}
               className="font-semibold leading-snug md:leading-tight text-lg md:text-2xl lg:text-3xl"
             >
-              Indian Spices & Food Products{" "}
-              <span className="text-[10px] md:text-xs lg:text-sm opacity-80 align-baseline">
-                to the
-              </span>{" "}
-              <span>World</span>
+              Indian Spices & Food Products <span>to the</span> <span>World</span>
             </h2>
 
-            {/* TOP–BOTTOM LINE */}
+            {/* ✅ FIXED TOP–BOTTOM LINE (DESKTOP) */}
             <div className="mt-3">
               <div className="inline-block border-t border-b border-black py-1 whitespace-nowrap">
                 <p className="text-[10px] md:text-sm text-gray-700 m-0">
@@ -69,25 +65,36 @@ const Hero = () => {
         >
           Exporters of Premium
         </h1>
+<h2
+  style={{ fontFamily: "Aparajita" }}
+  className="font-semibold leading-snug md:leading-tight text-lg md:text-2xl lg:text-3xl"
+>
+  Indian Spices & Food Products{" "}
+  <span className="text-[10px] md:text-xs lg:text-sm opacity-90 align-baseline">
+    to the
+  </span>{" "}
+  <span>World</span>
+</h2>
 
-        {/* Already working */}
-        <h2
-          style={{ fontFamily: "Aparajita" }}
-          className="font-semibold leading-snug text-base sm:text-lg"
-        >
-          Indian Spices & Food Products{" "}
-          <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm opacity-90">
-            to the
-          </span>{" "}
-          <span>World</span>
-        </h2>
 
+
+
+        {/* ✅ SAME TOP–BOTTOM LINE (MOBILE) */}
         <div className="mt-3">
           <div className="inline-block border-t border-b border-black py-1 whitespace-nowrap">
             <p className="text-[8.2px] sm:text-xs text-gray-700 m-0">
               Manufactured by Abaad Masala & Co. (India) || Exported by Nexus Global Overseas
             </p>
           </div>
+        </div>
+
+        <div className="mt-4">
+          <NavLink
+            to="/contact"
+            className="px-5 py-2 rounded-md bg-[#F58634] text-white font-medium text-sm"
+          >
+            Get a Quote
+          </NavLink>
         </div>
       </div>
     </section>

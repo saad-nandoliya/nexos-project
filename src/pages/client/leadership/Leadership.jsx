@@ -6,6 +6,7 @@ import lead3 from "../../../../public/prodeImage/e31dad5f4882d565bb72dada104a9ae
 import lead4 from "../../../../public/prodeImage/9536bb300fd51480518ac92a9096078b0b6b5e8d.png";
 import lead5 from "../../../../public/prodeImage/ef9b13a73e8508b5095405a77bbf620fd3d90158.png";
 import lead6 from "../../../../public/prodeImage/f7c5ae2aa2a6b21da41041a500600ddcf1422c2f.png";
+import { NavLink } from 'react-router-dom';
 
 const teamMembers = [
   {
@@ -145,7 +146,8 @@ reflects consistency, quality, and trust.
         <p className="text-gray-600 text-sm md:text-base mb-8">
           Backed by manufacturing. Focused on global growth.
         </p>
-        <button 
+    <NavLink to="/contact" >
+          <button 
           className="text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           style={{ backgroundColor: "#F58634", color: "white" }}
           onMouseEnter={e => e.target.style.backgroundColor = "#d96b20"}
@@ -153,6 +155,7 @@ reflects consistency, quality, and trust.
         >
           Connect With Us
         </button>
+    </NavLink>
       </section>
     </div>
   );

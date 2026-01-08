@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 import prod1 from "../../../../public/prodeImage/924342857fa40bb07a6345bca455cad1c9245e25.jpg"
@@ -164,11 +164,13 @@ complete white-label manufacturing and export solutions.            </p>
         <div className="animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Looking for a Reliable Product Supply?</h2>
           <p className="text-gray-500 mb-10">Partner with a manufacturer-backed export company.</p>
+          <NavLink to="/contact" >
           <button 
             className="bg-[#f38d39] hover:bg-[#e27d28] text-white px-12 py-4 rounded-lg font-bold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95"
           >
             Build Your Supply
           </button>
+          </NavLink>
         </div>
       </section>
 

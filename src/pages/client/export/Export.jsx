@@ -12,6 +12,7 @@ import rice5 from "../../../../public/prodeImage/683d39b30a0149b066efa4a9f384917
 import rice6 from "../../../../public/prodeImage/f93bc0bcbe8290d47fd538cd9e048787298c2bdb.jpg";
 import rice7 from "../../../../public/prodeImage/92f574b621faaf558587eaa138070321b36ba7f3.jpg";
 import rice8 from "../../../../public/prodeImage/e7ae02024c21cabce14c604727ba1af2f53133e1.jpg";
+import { NavLink } from "react-router-dom";
 
 function Export() {
   return (
@@ -332,12 +333,14 @@ function Export() {
           <p className="text-sm md:text-base text-gray-600 mb-6">
             Partner with a manufacturer-backed export company.
           </p>
+          <NavLink to="/contact" >
           <button
             type="button"
             className="inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold text-white bg-[#f38d39] hover:bg-[#e27d28] rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
           >
             Build Your Supply
           </button>
+          </NavLink>
         </div>
       </div>
     </div>

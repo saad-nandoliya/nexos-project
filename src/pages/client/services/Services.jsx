@@ -1,6 +1,7 @@
 import React from 'react';
 
 import service from "../../../../public/prodeImage/service.jpg";
+import { NavLink } from 'react-router-dom';
 
 
 const services = [
@@ -119,9 +120,11 @@ We don’t operate as brokers or traders. Our services are backed by real manufa
         <p className="text-gray-600 mb-10 text-lg">
           Let's build a long-term, manufacturing-backed export partnership.
         </p>
+        <NavLink to="/contact" >
         <button className="bg-[#f38d39] hover:bg-[#e27d28] text-white px-10 py-3.5 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl hover:scale-105 transform duration-200">
           Build Your Supply With Us
         </button>
+        </NavLink>
       </section>
     </div>
   );
